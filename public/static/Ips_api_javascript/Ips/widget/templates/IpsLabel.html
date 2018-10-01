@@ -1,0 +1,31 @@
+<div class="mycontainer meaturecontainer">
+    <!--标题-->
+    <div class="mytitle"  data-dojo-attach-event="onclick:changeZindex">
+        <div class="mytitletext"><span class="fa fa-pencil-square"></span>标注</div>
+        <div class="mybtn-group">
+            <button class="mybtn mymin" title="最小化" data-dojo-attach-event="onclick:min_max"><span class="fa fa-minus"></span></button>
+            <button class="mybtn myclose" title="关闭" data-dojo-attach-event="onclick:close"><span class="fa fa-times"></span></button>
+        </div>
+    </div>
+    <!--内容-->
+    <div class="mybody">
+        <div class="mycontent">
+            <div id="label" class="labelitem">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <label style="color:#428BCA">名称：</label><input id="lname" class="lip" type="text"><br>
+                    <label style="color:#428BCA">属性：</label><input id="lattr" class="lip" type="text">
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-9">
+                    <div class="lbtngroup">
+                        <button class="lbtn" title="绘制" data-dojo-attach-event="onclick:activedraw"><span class="fa fa-hand-o-up"></span></button>
+                        <button class="lbtn" title="停止" data-dojo-attach-event="onclick:stopdraw"><span class="fa fa-times"></span></button>
+                        <button class="lbtn" title="清除" data-dojo-attach-event="onclick:removelabel"><span class="fa fa-eraser"></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,96 @@
+@extends('common.layouts')
+@section('content')
+    <div class="row">
+        <div class="col-lg-12">
+            <h4 class="page-header">用户管理</h4>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">用户详情</div>
+
+        <table class="table table-bordered table-striped table-hover ">
+            <tbody>
+            <tr>
+                <td width="50%">uid</td>
+                <td>{{$users->uid}}</td>
+            </tr>
+            <tr>
+                <td>username</td>
+                <td>{{$users->username}}</td>
+            </tr>
+            <tr>
+                <td>password</td>
+                <td>{{$users->password}}</td>
+            </tr>
+            <tr>
+                <td>appid</td>
+                <td>{{$users->appid}}</td>
+            </tr>
+            <tr>
+                <td>sex</td>
+                <td>{{$users->sex}}</td>
+            </tr>
+            <tr>
+                <td>email</td>
+                <td>{{$users->email}}</td>
+            </tr>
+            <tr>
+                <td>group_id</td>
+                <td>{{$users->group_id}}</td>
+            </tr>
+            <tr>
+                <td>parent_id</td>
+                <td>{{$users->parent_id}}</td>
+            </tr>
+            <tr>
+                <td>status</td>
+                <td>{{$users->status}}</td>
+            </tr>
+            <tr>
+                <td>registertime</td>
+                <td>{{$users->registertime}}</td>
+            </tr>
+            <tr>
+                <td>nikename</td>
+                <td>{{$users->nikename}}</td>
+            </tr>
+            <tr>
+                <td>tel_number</td>
+                <td>{{$users->tel_number}}</td>
+            </tr>
+            <tr>
+                <td>lastlogintime</td>
+                <td>{{$users->lastlogintime}}</td>
+            </tr>
+            <tr>
+                <td>role</td>
+                <td>{{$users->role}}</td>
+            </tr>
+            <tr>
+                <td>address</td>
+                <td>{{$users->address}}</td>
+            </tr>
+            <tr>
+                <td>icon_path</td>
+                <td>{{$users->icon_path}}</td>
+            </tr>
+            <tr>
+                <td>image_path</td>
+                <td>{{$users->image_path}}</td>
+            </tr>
+            <tr>
+                <td>type</td>
+                <td>{{$users->type}}</td>
+            </tr>
+            <tr>
+                <td>admin</td>
+                <td>{{$users->admin}}</td>
+            </tr>
+            <tr>
+                <td>option</td>
+                <td>s{{$users->option}}ean</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+@stop
