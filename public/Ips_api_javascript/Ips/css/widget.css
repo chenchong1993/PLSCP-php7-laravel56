@@ -1,0 +1,66 @@
+/*echarts*/
+.echartcontainer{width:600px;border-radius:12px;}
+.ebody{padding:5px;background-color:#fff;}
+.etitle{position:relative;width:100%;height:30px;background:#428BCA;border-radius:8px 8px 0 0;cursor:move;}
+.ebody{background:linear-gradient(#428BCA,#48D1CC);border-radius:0 0 5px 5px;}
+.etitletext{position: absolute; font-size:17px; left:15px;color:#fff;top:6px;font-weight:bold}
+.emin{right:70px;top:6px;}
+.emax{right:40px;top:6px;}
+.eclose{right:10px;top:6px;}
+.econtent{background-color:#fff;border-radius:5px 5px 0 0}
+.eselest{position:relative;height:110px;}
+.epara{position:absolute;top:8px;padding:10px;color:#009ACD}
+.epara>label{font-size:15px;font-weight:inherit;padding-left:10px}
+.epara>.etlabel{padding-left:0}
+.ebtn{position:absolute;color:#fff;border-radius: 10px;text-align: center;font-size:10px;width:20px;height:20px;background-color:#00BFFF;border:solid 0.5px transparent;padding:0}
+.ebtn:hover{border-color:#fff}
+.ebtn-select{position: absolute;right:20px;top:18px;width:60px;height:24px;font-size:15px; border-radius: 3px;border:solid 1px #428BCA}
+.echartitem{width:100%;height:400px;background-color:#FFFFFF;border-bottom:solid 1px #428BCA;}
+/*自定义部件css*/
+.mycontainer{border-radius:6px;}
+.mybody{padding:1px;background:#448ACA;border-radius:0;}
+.nobody{padding:3px;background:#428BCA;border-radius:0 0 5px 5px;}
+.mytitle{position:relative;width:100%;height:30px;background:#448ACA;border-radius:8px 8px 0 0;cursor:move;}
+.mytitletext{position: absolute; font-size:16px; left:10px;color:#fff;top:6px;}
+.mytitletext>span{margin-right:5px;}
+.mybtn-group{position:absolute;font-size:8px;right:10px;top:10px;}
+.mycontent{background-color:#fff;border-radius:5px 5px 0 0}
+.mybtn{color:#fff;border-radius:4px;width:16px;height:16px;background-color:#00BFFF;border:solid 0.5px transparent;padding:0;margin-left:4px;}
+.mybtn:hover{border-color:#fff}
+/*测量部件*/
+.meaturecontainer{width:300px;}
+.meatureitem{width:100%;height:200px;background-color:#FFFFFF;border-radius:5px 5px 0 0}
+/*标注*/
+.labelcontainer{width:300px;}
+.labelitem{width:100%;height:200px;background-color:#FFFFFF;border-radius:5px 5px 0 0;padding:15px 0;}
+.lbtn{color:#fff;font-size:20px;border-radius:5px;text-align:center;width:30px;height:30px;background-color:#00BFFF;border:solid 0.5px transparent;margin-right:10px;}
+.lbtn:hover{border-color:#fff}
+.lbtngroup{margin-top:10px;}
+.lip{width:85%;height:30px;border:solid 1px #00BFFF;margin-bottom:5px;border-radius:3px;}
+/*选区*/
+.rgbtn{color:#fff;border-radius:5px;text-align:center;width:150px;height:30px;background-color:#00BFFF;border:solid 2px transparent;margin:5px 0;}
+.rgbtn:hover{border-color:#fff;background-color: #363b48;}
+.rgbtngroup{margin:0 5px 0 5px;padding:0;}
+/*图层控制*/
+.portcontrolitem{width:100%;height:auto;background-color:#FFFFFF;border-radius:5px 5px 0 0;padding:5px 0px;}
+.fcbtn{color:#fff;font-size:20px;border-radius:5px;text-align:center;width:40px;height:40px;background-color:#00BFFF;border:solid 2px transparent;margin:0px;}
+.fcbtn:hover{border-color:#fff;background-color: #448ACA;}
+.pcbtngroup{margin:0 5px 0 5px;padding:0}
+/*网络分析*/
+.networkcontainer{width:200px;}
+.networkitem{width:100%;height:auto;background-color:#FFFFFF;border-radius:5px 5px 0 0;padding:5px 0px;}
+.nabtn{color:#fff;font-size:20px;border-radius:5px;text-align:center;width:36px;height:36px;background-color:#00BFFF;border:solid 2px transparent;margin:0px;}
+.nabtn:hover{border-color:#fff;background-color: #448ACA;}
+.nabtngroup{margin-left:40px;padding:0;}
+/**模拟轨迹*/
+.trajectorycontainer{width:280px;}
+/**缓冲区*/
+.bufferitem{width:100%;height:auto;background-color:#FFFFFF;border-radius:0;padding:10px 0px;}
+.dislabel{margin-left:20px;}
+.distance{width:60px;height:24px;}
+.bfbtn{color:#fff;font-size:20px;border-radius:5px;text-align:center;width:36px;height:36px;background-color:#00BFFF;border:solid 2px transparent;margin:0px;}
+.bfbtn:hover{border-color:#fff;background-color: #448ACA;}
+.bfbtngroup{margin-left:20px;margin-top:10px;padding:0;}
+/*table*/
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {line-height:0.999999}
+

@@ -51,6 +51,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::any('normalMap','PageController@normalMap'); //普通地图
     Route::any('poiMap','PageController@poiMap'); //兴趣点图
     Route::any('routeMap','PageController@routeMap'); //路网图
+    Route::any('userTrail','PageController@userTrail');
     //普通查询
     Route::any('nameSearch','PageController@nameSearch'); //名称查询
     Route::any('extentSearch','PageController@extentSearch'); //扩展查询

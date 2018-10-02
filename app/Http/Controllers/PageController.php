@@ -143,6 +143,13 @@ class PageController extends Controller
     {
         return view('map.routemap');
     }
+    /**
+     * 轨迹模拟图
+     */
+    public function userTrail()
+    {
+        return view('map.userTrail');
+    }
 
     /**
      * 名称查询
