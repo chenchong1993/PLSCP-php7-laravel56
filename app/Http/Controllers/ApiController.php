@@ -253,4 +253,55 @@ class ApiController extends Controller
         ]);
 
     }
+
+    /**
+     * 添加点坐标接口
+     */
+    public function apiAddUserLocation()
+    {
+        $validator = Validator::make(rq(), [
+            'user_id' => 'required|exists:users,id',
+            'lng' => 'required|string',
+            'lat' => 'required|string',
+            'floor' => 'required|integer|min:1|max:100'
+        ]);
+
+        if ($validator->fails())
+            return err(1, $validator->messages());
+
+        $userLocation = new UserLocation();
+        $userLocation->user_id = rq('user_id');
+        $userLocation->lng = rq('lng');
+        $userLocation->lat = rq('lat');
+        $userLocation->floor = rq('floor');
+        $userLocation->save();
+
+        return suc();
+
+    }
+    /**
+     * 终端根据用户名获取UID接口
+     * 接口访问链接http://plscp.free.idcfengye.com/api/apiGetUid
+     * 参数列表 {"username":"adminxiaosong"}
+     */
+    public function apiGetUid()
+    {
+        $validator = Validator::make(rq(), [
+            'username' => 'required|string',
+        ]);
+
+        if ($validator->fails())
+            return err(1, $validator->messages());
+
+        $user_name = rq('username');
+
+        $user = User::where("username" ,'like', '%'.$user_name.'%')->get();
+        if ($user->isEmpty()){
+            return  err(1, $validator->messages());
+        }
+        else{
+            return $user[0]->uid;
+        }
+
+    }
 }

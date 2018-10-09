@@ -16,6 +16,7 @@ class VerifyCsrfToken extends Middleware
         'api/apiUserAdd',
         'api/apiUserDelete/{uid}',
         'api/apiUserUpdate/{uid}',
-        'api/apiSearchResult'
+        'api/apiSearchResult',
+        'api/apiGetUid'
     ];
 }
