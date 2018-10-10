@@ -17,6 +17,7 @@
     <script>
         require([
             "Ips/map",
+            "Ips/widget/IpsMeasure",
             "Ips/layers/DynamicMapServiceLayer",
             "Ips/layers/GraphicsLayer",
             "esri/graphic",
@@ -24,11 +25,16 @@
             "esri/InfoTemplate",
             "esri/symbols/PictureMarkerSymbol",
             "dojo/domReady!"
-        ], function (Map,DynamicMapServiceLayer,GraphicsLayer,Graphic,Point,InfoTemplate,
+        ], function (Map,IpsMeasure,DynamicMapServiceLayer,GraphicsLayer,Graphic,Point,InfoTemplate,
                      PictureMarkerSymbol){
-            var map = new Map("map", {
-                logo:false
-            });
+                var map = new Map("map", {
+                    logo:false
+                });
+                var measure = new IpsMeasure({
+                    map:map
+                });
+
+
             //初始化F1楼层平面图
             var f1 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floorone/MapServer");
             map.addLayer(f1);
@@ -59,6 +65,7 @@
                 layer.add(picgr[i]);
             }
             map.addLayer(layer);
+            measure.startup();
 
         });
     </script>

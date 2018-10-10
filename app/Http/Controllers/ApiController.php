@@ -7,6 +7,7 @@
  */
 
 namespace App\Http\Controllers;
+use App\Coo;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -255,25 +256,44 @@ class ApiController extends Controller
     }
 
     /**
-     * 添加点坐标接口
+     * 添加用户的位置信息 也就是终端用户实时位置上报
+     * URL：http://127.0.0.1/api/apiAddUserLocation
+        接口列表：{
+        "uid":"12541224512",
+        "x":"123.215", 可空
+        "y":"123.215", 可空
+        "lng":"123.215",
+        "lat":"123.215",
+        "floor":"2",
+        "float":"123.215", 可空
+        "time":"125458751"
+        }
      */
     public function apiAddUserLocation()
     {
         $validator = Validator::make(rq(), [
-            'user_id' => 'required|exists:users,id',
-            'lng' => 'required|string',
-            'lat' => 'required|string',
-            'floor' => 'required|integer|min:1|max:100'
+            'uid' => 'required',
+            'x' => '',
+            'y' => '',
+            'lng' => 'required',
+            'lat' => 'required',
+            'time' => 'required|string',
+            'floor' => 'required|integer|min:1|max:100',
+            'float' => ''
         ]);
 
         if ($validator->fails())
             return err(1, $validator->messages());
 
-        $userLocation = new UserLocation();
-        $userLocation->user_id = rq('user_id');
+        $userLocation = new Coo();
+        $userLocation->uid = rq('uid');
+        $userLocation->x = rq('x');
+        $userLocation->y = rq('y');
         $userLocation->lng = rq('lng');
         $userLocation->lat = rq('lat');
+        $userLocation->time = rq('time');
         $userLocation->floor = rq('floor');
+        $userLocation->float = rq('float');
         $userLocation->save();
 
         return suc();

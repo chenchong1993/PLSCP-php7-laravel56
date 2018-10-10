@@ -65,8 +65,8 @@ Route::group(['prefix' => 'api'], function () {
     Route::post('apiSearchResult', 'ApiController@apiSearchResult');//添加用户
     Route::any('apiUserDelete/{uid}','ApiController@apiUserDelete'); //删除用户
     Route::any('apiUserUpdate/{uid}','ApiController@apiUserUpdate'); //修改用户资料
-    Route::post('apiGetUid', 'ApiController@apiGetUid');//添加用户
-
+    Route::post('apiGetUid', 'ApiController@apiGetUid');//为终端获取用户UID
+    Route::post('apiAddUserLocation', 'ApiController@apiAddUserLocation');//为终端获取用户UID
 
 
     });
