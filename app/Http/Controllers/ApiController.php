@@ -277,7 +277,6 @@ class ApiController extends Controller
             'y' => '',
             'lng' => 'required',
             'lat' => 'required',
-            'time' => 'required|string',
             'floor' => 'required|integer|min:1|max:100',
             'float' => ''
         ]);
@@ -291,7 +290,6 @@ class ApiController extends Controller
         $userLocation->y = rq('y');
         $userLocation->lng = rq('lng');
         $userLocation->lat = rq('lat');
-        $userLocation->time = rq('time');
         $userLocation->floor = rq('floor');
         $userLocation->float = rq('float');
         $userLocation->save();

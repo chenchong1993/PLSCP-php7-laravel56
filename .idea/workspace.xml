@@ -15,7 +15,7 @@
     <session id="1592877187">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.36" value="1" />
@@ -31,13 +31,14 @@
           <entry key="gitignore" value="1" />
           <entry key="html" value="3" />
           <entry key="js" value="2" />
+          <entry key="log" value="2" />
           <entry key="php" value="45" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="19" />
-          <entry key="php" value="1931" />
+          <entry key="php" value="1940" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.composer.command.options" />
@@ -49,7 +50,7 @@
           <entry key="HTML" value="3" />
           <entry key="JavaScript" value="2" />
           <entry key="PHP" value="24" />
-          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -61,7 +62,7 @@
         <counts>
           <entry key="Blade" value="543" />
           <entry key="HTML" value="19" />
-          <entry key="PHP" value="1388" />
+          <entry key="PHP" value="1397" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.test" />
@@ -70,15 +71,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/map/normalmap.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="26" selection-start-column="26" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PageController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -103,8 +95,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="265" column="22" lean-forward="true" selection-start-line="265" selection-start-column="22" selection-end-line="265" selection-end-column="22" />
+            <state relative-caret-position="1980">
+              <caret line="319" column="13" lean-forward="true" selection-start-line="319" selection-start-column="13" selection-end-line="319" selection-end-column="13" />
               <folding>
                 <element signature="e#128#140#0#PHP" expanded="true" />
                 <element signature="e#260#365#0#PHP" />
@@ -113,8 +105,17 @@
                 <element signature="e#4182#5077#0#PHP" />
                 <element signature="e#5114#5695#0#PHP" />
                 <element signature="e#5737#7332#0#PHP" />
-                <element signature="e#8262#8755#0#PHP" />
+                <element signature="e#7351#7393#0#PHP" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/storage/logs/laravel.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="377" selection-start-column="53" selection-end-column="377" />
             </state>
           </provider>
         </entry>
@@ -123,7 +124,7 @@
         <entry file="file://$PROJECT_DIR$/app/Coo.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="373">
-              <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+              <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
               <folding>
                 <element signature="e#6#118#0#PHP" expanded="true" />
               </folding>
@@ -135,7 +136,7 @@
         <entry file="file://$PROJECT_DIR$/resources/views/push/one2one.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-667">
-              <caret line="139" column="24" lean-forward="true" selection-start-line="139" selection-start-column="24" selection-end-line="139" selection-end-column="24" />
+              <caret line="139" column="24" selection-start-line="139" selection-start-column="24" selection-end-line="139" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -153,7 +154,7 @@
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="448">
-              <caret line="71" column="7" lean-forward="true" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
+              <caret line="71" column="7" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -167,7 +168,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="409">
-              <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="31" />
+              <caret line="20" column="31" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -207,6 +208,7 @@
         <option value="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Coo.php" />
+        <option value="$PROJECT_DIR$/storage/logs/laravel.log" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" />
       </list>
     </option>
@@ -321,7 +323,7 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -388,6 +390,17 @@
               <item name="PLSCP" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="PLSCP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PLSCP" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PLSCP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PLSCP" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+              <item name="logs" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -434,15 +447,16 @@
       <workItem from="1538037165857" duration="2398000" />
       <workItem from="1538449966698" duration="3325000" />
       <workItem from="1538972240449" duration="11514000" />
-      <workItem from="1539138332660" duration="4109000" />
+      <workItem from="1539138332660" duration="7432000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61342000" />
+    <option name="totallyTimeSpent" value="64665000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20574887" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -641,7 +655,7 @@
     <entry file="file://$PROJECT_DIR$/resources/views/push/one2one.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-667">
-          <caret line="139" column="24" lean-forward="true" selection-start-line="139" selection-start-column="24" selection-end-line="139" selection-end-column="24" />
+          <caret line="139" column="24" selection-start-line="139" selection-start-column="24" selection-end-line="139" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -658,7 +672,7 @@
     <entry file="file://$PROJECT_DIR$/app/Coo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="373">
-          <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
           <folding>
             <element signature="e#6#118#0#PHP" expanded="true" />
           </folding>
@@ -668,7 +682,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="409">
-          <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="31" />
+          <caret line="20" column="31" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -678,7 +692,7 @@
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="448">
-          <caret line="71" column="7" lean-forward="true" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
+          <caret line="71" column="7" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -689,10 +703,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/storage/logs/laravel.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="377" selection-start-column="53" selection-end-column="377" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="265" column="22" lean-forward="true" selection-start-line="265" selection-start-column="22" selection-end-line="265" selection-end-column="22" />
+        <state relative-caret-position="1980">
+          <caret line="319" column="13" lean-forward="true" selection-start-line="319" selection-start-column="13" selection-end-line="319" selection-end-column="13" />
           <folding>
             <element signature="e#128#140#0#PHP" expanded="true" />
             <element signature="e#260#365#0#PHP" />
@@ -701,7 +722,7 @@
             <element signature="e#4182#5077#0#PHP" />
             <element signature="e#5114#5695#0#PHP" />
             <element signature="e#5737#7332#0#PHP" />
-            <element signature="e#8262#8755#0#PHP" />
+            <element signature="e#7351#7393#0#PHP" />
           </folding>
         </state>
       </provider>
