@@ -68,27 +68,6 @@
             map.addLayer(f3);
             f2.hide();
             f3.hide();
-            on(dom.byId("render1"),"click",function () {
-
-                f1.show();
-                f2.hide();
-                f3.hide();
-
-            });
-            on(dom.byId("render2"),"click",function () {
-
-                f1.hide();
-                f3.hide();
-                f2.show();
-
-            });
-            on(dom.byId("render3"),"click",function () {
-
-                f1.hide();
-                f2.hide();
-                f3.show()
-
-            });
             //初始化GraphicsLayer
             var pointLayer = new GraphicsLayer();
             map.addLayer(pointLayer);
@@ -138,13 +117,10 @@
                         // 添加人
                         // console.log('000000000000000000');
                         console.log(dat.data[1]);
-                        for (var i in dat.data) {
-                            console.log(i);
-                            console.log(dat.data[i].id);
-                            console.log(dat.data[i].location.lng);
-                            console.log(dat.data[i].username);
-                            console.log(dat.data[i].tel_number);
-
+                        //注销掉因为先单用户测试
+                        // for (var i in dat.data) {
+                        for (var i=0; i<1; i++) {
+                            console.log(dat.data[i].location.lat);
                             addUserPoint(
                                 dat.data[i].id,
                                 dat.data[i].location.lng,
@@ -153,6 +129,27 @@
                                 dat.data[i].tel_number,
                                 'normal'
                             );
+                            if (dat.data[i].location.floor == 1) {
+                                console.log('0000000000');
+                                f1.show();
+                                f2.hide();
+                                f3.hide();
+
+                            }
+                            if (dat.data[i].location.floor == 2) {
+
+                                f1.hide();
+                                f3.hide();
+                                f2.show();
+
+                            }
+                            if (dat.data[i].location.floor == 3) {
+
+                                f1.hide();
+                                f2.hide();
+                                f3.show()
+
+                            }
                         }
 
                     } else {
@@ -170,9 +167,6 @@
     <div class="row">
         <div class="map-col">
             <div id="map"></div>
-            <button id="render1">F1</button>
-            <button id="render2">F2</button>
-            <button id="render3">F3</button>
         </div>
     </div>
 @stop
