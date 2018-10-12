@@ -116,10 +116,11 @@
                         pointLayer.clear();
                         // 添加人
                         // console.log('000000000000000000');
-                        console.log(dat.data[1]);
+                        console.log(dat.data);
                         //注销掉因为先单用户测试
-                        // for (var i in dat.data) {
-                        for (var i=0; i<1; i++) {
+                        for (var i in dat.data) {
+                        // for (var i=0; i<10; i++) {
+                            console.log(dat.data[i].username);
                             console.log(dat.data[i].location.lat);
                             addUserPoint(
                                 dat.data[i].id,
@@ -130,7 +131,6 @@
                                 'normal'
                             );
                             if (dat.data[i].location.floor == 1) {
-                                console.log('0000000000');
                                 f1.show();
                                 f2.hide();
                                 f3.hide();

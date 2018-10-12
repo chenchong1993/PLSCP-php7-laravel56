@@ -8,9 +8,11 @@
 
 namespace App\Http\Controllers;
 use App\Coo;
+use App\Obs;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use function PHPSTORM_META\type;
 
 
 class ApiController extends Controller
@@ -335,5 +337,31 @@ class ApiController extends Controller
             $user['location'] = $user_location;
         }
         return suc($users);
+    }
+
+    /**
+     * 传感器数据接口
+     */
+    public function apiAddObs()
+    {
+        $validator = Validator::make(rq(), [
+            'uid' => 'required',
+            'wifi' => '',
+            'blue_tooth'=>'',
+            'sensor'=>''
+        ]);
+
+        if ($validator->fails())
+            return err(1, $validator->messages());
+
+        $obs = new Obs();
+        $obs->uid=rq('uid');
+        $obs->wifi=rq('wifi');
+        $obs->blue_tooth=rq('blue_tooth');
+        $obs->sensor=rq('sensor');
+        $obs->save();
+        return suc();
+
+
     }
 }

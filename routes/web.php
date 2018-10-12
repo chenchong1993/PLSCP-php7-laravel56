@@ -66,8 +66,8 @@ Route::group(['prefix' => 'api'], function () {
     Route::any('apiUserDelete/{uid}','ApiController@apiUserDelete'); //删除用户
     Route::any('apiUserUpdate/{uid}','ApiController@apiUserUpdate'); //修改用户资料
     Route::post('apiGetUid', 'ApiController@apiGetUid');//为终端获取用户UID
-    Route::post('apiAddUserLocation', 'ApiController@apiAddUserLocation');//为终端获取用户UID
+    Route::post('apiAddUserLocation', 'ApiController@apiAddUserLocation');//获取用户坐标
     Route::get('apiGetAllUserNewLocationList', 'ApiController@apiGetAllUserNewLocationList');//从数据库中获取用户位置信息
-
+    Route::post('apiAddObs', 'ApiController@apiAddObs');//获取观测数据
     });
 });

@@ -4,7 +4,7 @@
  * User: Administrator
  * Date: 2018/8/9
  * Time: 15:31
- * 用户坐标点模型，对应数据库里用户坐标点内容
+ * 用户传感器模型
  */
 
 namespace App;
@@ -12,9 +12,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Coo extends Model
+class Obs extends Model
 {
-    protected $table = "coo";
-//    public $primaryKey = 'uid';
+    protected $table = "obs";
+//    public $timestamps =  false;
 
 }
