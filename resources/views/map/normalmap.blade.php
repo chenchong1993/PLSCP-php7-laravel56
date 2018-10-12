@@ -33,6 +33,7 @@
         var INTERVAL_TIME = 2; //数据刷新间隔时间
         require([
             "Ips/map",
+            "Ips/widget/IpsMeasure",
             "Ips/layers/DynamicMapServiceLayer",
             "Ips/layers/FeatureLayer",
             "Ips/layers/GraphicsLayer",
@@ -50,10 +51,13 @@
             "dojo/on",
             "dojo/dom",
             "dojo/domReady!"
-        ], function (Map, DynamicMapServiceLayer, FeatureLayer, GraphicsLayer, Graphic, Point, Polyline, Polygon, InfoTemplate, SimpleMarkerSymbol, SimpleLineSymbol,
+        ], function (Map, IpsMeasure,DynamicMapServiceLayer, FeatureLayer, GraphicsLayer, Graphic, Point, Polyline, Polygon, InfoTemplate, SimpleMarkerSymbol, SimpleLineSymbol,
                      SimpleFillSymbol, PictureMarkerSymbol, TextSymbol, Color, on, dom) {
             var map = new Map("map", {
                 logo:false
+            });
+            var measure = new IpsMeasure({
+                map:map
             });
 
 
@@ -71,6 +75,10 @@
             //初始化GraphicsLayer
             var pointLayer = new GraphicsLayer();
             map.addLayer(pointLayer);
+            measure.startup();
+
+
+
 
 
             function addUserPoint(id, lng, lat, name, phone, status) {

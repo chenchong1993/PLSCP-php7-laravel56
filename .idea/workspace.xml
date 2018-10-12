@@ -15,7 +15,7 @@
     <session id="1592877187">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.3" value="1" />
@@ -34,14 +34,14 @@
           <entry key="html" value="3" />
           <entry key="js" value="3" />
           <entry key="log" value="2" />
-          <entry key="php" value="51" />
+          <entry key="php" value="52" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="10" />
           <entry key="html" value="19" />
-          <entry key="php" value="3092" />
+          <entry key="php" value="3099" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.composer.command.options" />
@@ -49,7 +49,7 @@
       <usages-collector id="statistics.php.composer.actions" />
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="25" />
+          <entry key="Blade" value="26" />
           <entry key="HTML" value="3" />
           <entry key="JavaScript" value="3" />
           <entry key="PHP" value="26" />
@@ -63,7 +63,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="1143" />
+          <entry key="Blade" value="1150" />
           <entry key="HTML" value="19" />
           <entry key="PHP" value="1949" />
           <entry key="PLAIN_TEXT" value="10" />
@@ -99,8 +99,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/map/normalmap.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="122" column="52" lean-forward="true" selection-start-line="122" selection-start-column="52" selection-end-line="122" selection-end-column="52" />
+            <state relative-caret-position="281">
+              <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
             </state>
           </provider>
         </entry>
@@ -119,6 +119,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="399">
               <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/map/poimap.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="67" column="12" selection-start-line="67" selection-start-column="12" selection-end-line="67" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -147,6 +156,8 @@
       <find>SimpleFillSymbol</find>
       <find>PictureMarkerSymbol</find>
       <find>Color</find>
+      <find>IpsMeasure</find>
+      <find>measure</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -418,12 +429,12 @@
       <workItem from="1538972240449" duration="11514000" />
       <workItem from="1539138332660" duration="7432000" />
       <workItem from="1539224812154" duration="32587000" />
-      <workItem from="1539323421467" duration="3930000" />
+      <workItem from="1539323421467" duration="4641000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101182000" />
+    <option name="totallyTimeSpent" value="101893000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -649,13 +660,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/map/poimap.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="43" column="122" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="122" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/map/routemap.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -690,10 +694,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/map/poimap.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="67" column="12" selection-start-line="67" selection-start-column="12" selection-end-line="67" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/map/normalmap.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="122" column="52" lean-forward="true" selection-start-line="122" selection-start-column="52" selection-end-line="122" selection-end-column="52" />
+        <state relative-caret-position="281">
+          <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
         </state>
       </provider>
     </entry>
