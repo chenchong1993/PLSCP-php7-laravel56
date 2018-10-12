@@ -322,4 +322,18 @@ class ApiController extends Controller
         }
 
     }
+
+    /**
+     * 返回所有用户的最新位置信息列表
+     */
+
+    public function apiGetAllUserNewLocationList()
+    {
+        $users = User::get();
+        foreach ($users as $user) {
+            $user_location =Coo::where('uid', $user->uid)->latest()->first();
+            $user['location'] = $user_location;
+        }
+        return suc($users);
+    }
 }

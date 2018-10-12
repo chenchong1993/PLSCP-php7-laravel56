@@ -27,18 +27,38 @@
     </style>
 
     <script>
+        var HTHT_SERVER_IP = "121.28.103.199:9078"; //航天宏图服务器地址
+        var HTHT_TYPE_LOGIN_SCUUESS = 102; //航天宏图消息类型:登录成功
+        var HTHT_TYPE_RECEIVE_MSG = 1; //航天宏图消息类型:收到消息
+        var INTERVAL_TIME = 2; //数据刷新间隔时间
         require([
             "Ips/map",
             "Ips/layers/DynamicMapServiceLayer",
             "Ips/layers/FeatureLayer",
-            "Ips/renderers/HeatmapRenderer",
+            "Ips/layers/GraphicsLayer",
+            "esri/graphic",
+            "esri/geometry/Point",
+            "esri/geometry/Polyline",
+            "esri/geometry/Polygon",
+            "esri/InfoTemplate",
+            "esri/symbols/SimpleMarkerSymbol",
+            "esri/symbols/SimpleLineSymbol",
+            "esri/symbols/SimpleFillSymbol",
+            "esri/symbols/PictureMarkerSymbol",
+            "esri/symbols/TextSymbol",
+            "dojo/colors",
             "dojo/on",
             "dojo/dom",
             "dojo/domReady!"
-        ], function (Map,DynamicMapServiceLayer,FeatureLayer,HeatmapRenderer,on,dom){
+        ], function (Map, DynamicMapServiceLayer, FeatureLayer, GraphicsLayer, Graphic, Point, Polyline, Polygon, InfoTemplate, SimpleMarkerSymbol, SimpleLineSymbol,
+                     SimpleFillSymbol, PictureMarkerSymbol, TextSymbol, Color, on, dom) {
             var map = new Map("map", {
                 logo:false
             });
+
+
+
+
             //初始化F1楼层平面图
             var f1 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floorone/MapServer");
             var f2 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floortwo/MapServer");
@@ -68,7 +88,83 @@
                 f2.hide();
                 f3.show()
 
-            })
+            });
+            //初始化GraphicsLayer
+            var pointLayer = new GraphicsLayer();
+            map.addLayer(pointLayer);
+
+
+            function addUserPoint(id, lng, lat, name, phone, status) {
+
+                //定义点的几何体
+                //38.2477770 114.3489115
+                var picpoint = new Point(lng,lat);
+                // //定义点的图片符号
+                var picSymbol;
+                if (status == 'normal')
+                    picSymbol = new PictureMarkerSymbol("{{ asset('static/Ips_api_javascript/Ips/image/marker.png') }}",24,24);
+                else if (status == 'danger')
+                    picSymbol = new PictureMarkerSymbol("{{ asset('static/Ips_api_javascript/Ips/image/marker.png') }}",24,24);
+
+                //定义点的图片符号
+                var attr = {"name": name, "phone": phone};
+                //信息模板
+                var infoTemplate = new InfoTemplate();
+                infoTemplate.setTitle('用户');
+
+                infoTemplate.setContent(
+                    "<b>名称:</b><span>${name}</span><br>"
+                    + "<b>手机号:</b><span>${phone}</span><br><br>"
+                );
+                var picgr = new Graphic(picpoint, picSymbol, attr, infoTemplate);
+                pointLayer.add(picgr);
+            }
+
+        /**
+         * 从数据库读取用户列表和用户最新坐标并更新界面
+         */
+
+        function getDataAndRefresh() {
+
+            // 从云端读取数据
+            $.get("/api/apiGetAllUserNewLocationList",
+                {},
+                function (dat, status) {
+
+                    if (dat.status == 0) {
+
+                        // 删除数据
+                        pointLayer.clear();
+                        // 添加人
+                        // console.log('000000000000000000');
+                        console.log(dat.data[1]);
+                        for (var i in dat.data) {
+                            console.log(i);
+                            console.log(dat.data[i].id);
+                            console.log(dat.data[i].location.lng);
+                            console.log(dat.data[i].username);
+                            console.log(dat.data[i].tel_number);
+
+                            addUserPoint(
+                                dat.data[i].id,
+                                dat.data[i].location.lng,
+                                dat.data[i].location.lat,
+                                dat.data[i].username,
+                                dat.data[i].tel_number,
+                                'normal'
+                            );
+                        }
+
+                    } else {
+                        console.log('ajax error!');
+                    }
+                }
+            );
+        }
+
+        //循环执行
+        setInterval(getDataAndRefresh, (INTERVAL_TIME * 1000))
+
         });
     </script>
     <div class="row">

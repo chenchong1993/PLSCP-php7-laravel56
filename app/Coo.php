@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
 class Coo extends Model
 {
     protected $table = "coo";
-    public $primaryKey = 'uid';
+//    public $primaryKey = 'uid';
     public $timestamps =  false;
 
 }
