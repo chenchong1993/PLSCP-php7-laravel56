@@ -2,96 +2,110 @@
 <html style="height: 100%">
 <head>
     <meta charset="utf-8">
-    <title>历史轨迹渲染</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>大众位置服务云平台</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ asset('static/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="{{ asset('static/vendor/metisMenu/metisMenu.min.css') }}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{ asset('static/dist/css/sb-admin-2.css') }}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{{ asset('static/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    {{--HUI的图标库--}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('static/Hui-iconfont/1.0.8/iconfont.css') }}" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('static/Ips_api_javascript/dijit/themes/tundra/tundra.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('static/Ips_api_javascript/esri/css/esri.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('static/Ips_api_javascript/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('static/Ips_api_javascript/Ips/css/widget.css') }}" />
+    <script type="text/javascript" src="{{ asset('static/Ips_api_javascript/init.js') }}"></script>
+
+
+    <style type="text/css">
+        .user-msg{position:absolute;left:810px;top:10px;z-index:auto;width:500px;background-color:#f6f6f6}
+        .map1-col{position:absolute;left:10px;top:10px;z-index:0;width:800px;background-color:#f6f6f6}
+        .map2-col{position:absolute;left:10px;top:310px;z-index:1;width:800px;background-color:#f6f6f6}
+        .map3-col{position:absolute;left:810px;top:310px;z-index:auto;width:500px;background-color:#f6f6f6}
+    </style>
 </head>
 <body style="height: 100%; margin: 0">
-<div id="container" style="height: 100%"></div>
-<script src="{{asset('js/jquery-3.1.1.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/echarts.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/echarts-gl.js')}}"></script>
-<script src='{{asset('js/mapbox-gl.js')}}'></script>
-<script type="text/javascript">
-    //mapbox地图许可，需要自己注册一个mapbox账户
-    mapboxgl.accessToken = 'pk.eyJ1IjoieXlhbmcxOTkzIiwiYSI6ImNqOTl4ZXVzZTBxeDEycXBhNXlsa2F3NWcifQ.QFC0tXCO4wYOvX6IoKSB4g';
-    //初始化一个echarts实例
-    var myChart = echarts.init(document.getElementById('container'));
-    //ajax加载模拟轨迹
-    $.post("data/moni.json",function (data) {
-        var taxiRoutes = [];  //定义数组并进行每条线的颜色样式设置
-        var hStep = 300 / (data.length - 1);
-        for (var i in data) {
-            taxiRoutes.push({
-                coords: data[i].coords, //点坐标
-                lineStyle: {
-                    color: echarts.color.modifyHSL('#5A94DF', Math.round(hStep * i))
-                }
-            });
-        }
-        //chart配置
-        myChart.setOption({
-            title: {   //标题
-                top: 8,
-                left: 'center',
-                text: '多用户历史轨迹',
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 16,
-                },
-                subtext: '石家庄市桥西区',
-            },
-            mapbox: {
-                center: [114.446166,38.047284],    //地图中心点经纬度
-                zoom: 13,   //地图缩放级别
-                //pitch: 50,
-                //bearing: -10,
-                altitudeScale: 2,
-                style: 'mapbox://styles/mapbox/dark-v9',   //'mapbox://styles/mapbox/streets-v8',
-                postEffect: {
-                    enable: true,
-                    SSAO: {
-                        enable: true,
-                        radius: 2,
-                        intensity: 1.5
-                    }
-                },
-                light: {
-                    main: {
-                        intensity: 1,
-                        shadow: true,
-                        shadowQuality: 'high'
-                    },
-                    ambient: {
-                        intensity: 0.
-                    },
-                    ambientCubemap: {
-                        exposure: 1,
-                        diffuseIntensity: 0.5
-                    }
-                }
-            },
-            series: [{
-                type: 'lines3D',
-                coordinateSystem: 'mapbox',
-                effect: {
-                    show: true,
-                    constantSpeed: 3,
-                    trailWidth: 1.5,
-                    trailLength: 0.2,
-                    trailOpacity: 0.7,
-                    spotIntensity: 10
-                },
-                blendMode: 'lighter',
-                polyline: true,
-                lineStyle: {
-                    width: 0.1,
-                    color: '#ff270a',
-                    opacity: 0
-                },
-                data:taxiRoutes
-            }]
+
+<script>
+    var INTERVAL_TIME = 2; //数据刷新间隔时间
+    require([
+        "Ips/map",
+        "Ips/widget/IpsMeasure",
+        "Ips/layers/DynamicMapServiceLayer",
+        "Ips/layers/FeatureLayer",
+        "Ips/layers/GraphicsLayer",
+        "esri/graphic",
+        "esri/geometry/Point",
+        "esri/geometry/Polyline",
+        "esri/geometry/Polygon",
+        "esri/InfoTemplate",
+        "esri/symbols/SimpleMarkerSymbol",
+        "esri/symbols/SimpleLineSymbol",
+        "esri/symbols/SimpleFillSymbol",
+        "esri/symbols/PictureMarkerSymbol",
+        "esri/symbols/TextSymbol",
+        "dojo/colors",
+        "dojo/on",
+        "dojo/dom",
+        "dojo/domReady!"
+    ], function (Map, IpsMeasure,DynamicMapServiceLayer,FeatureLayer, GraphicsLayer, Graphic, Point, Polyline, Polygon, InfoTemplate, SimpleMarkerSymbol, SimpleLineSymbol,
+                 SimpleFillSymbol, PictureMarkerSymbol, TextSymbol, Color, on, dom) {
+        var map1 = new Map("map1", {
+            logo:false,
+            center: [114.3489254,38.24769],
         });
-    })
+        var map2 = new Map("map2", {
+            logo:false,
+            center: [114.3489254,38.24769],
+        });
+        var map3 = new Map("map3", {
+            logo:false,
+            center: [114.3486414,38.24770],
+        });
+        //初始化F1楼层平面图
+        var f1 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floorone/MapServer");
+        var f2 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floortwo/MapServer");
+        var f3 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floorthree/MapServer");
+        map1.addLayer(f1);
+        map2.addLayer(f2);
+        map3.addLayer(f3);
+
+    });
+
 
 </script>
+
+<div class="row">
+    <div class="map1-col">
+        <div id="map1"></div>
+    </div>
+    <div class="map2-col">
+        <div id="map2"></div>
+    </div>
+    <div class="map3-col">
+        <div id="map3"></div>
+    </div>
+    <div class="user-msg">
+        这里有一个消息提示框
+    </div>
+</div>
 </body>
 </html>

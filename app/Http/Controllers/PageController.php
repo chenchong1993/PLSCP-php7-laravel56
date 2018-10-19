@@ -181,8 +181,8 @@ class PageController extends Controller
      */
     public function pushToOne()
     {
-        $user = User::where('status' ,'=', '1')->paginate(5);
-//        $user = User::paginate(5);
+//        $user = User::where('status' ,'=', '1')->paginate(5);
+        $user = User::paginate(5);
         if ($user->isEmpty()){
             return redirect('pushToOne')->with('error','当前无用户在线');
         }

@@ -28,7 +28,8 @@
         ], function (Map,IpsMeasure,DynamicMapServiceLayer,GraphicsLayer,Graphic,Point,InfoTemplate,
                      PictureMarkerSymbol){
                 var map = new Map("map", {
-                    logo:false
+                    logo:false,
+                    center: [114.3489254,38.2477279]
                 });
                 var measure = new IpsMeasure({
                     map:map

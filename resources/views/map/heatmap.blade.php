@@ -34,7 +34,8 @@
             "dojo/domReady!"
         ], function (Map,DynamicMapServiceLayer,FeatureLayer,HeatmapRenderer,on,dom){
             var map = new Map("map", {
-                logo:false
+                logo:false,
+                center: [114.3489254,38.2477279]
             });
             //初始化F1楼层平面图
             var f1 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floorone/MapServer");

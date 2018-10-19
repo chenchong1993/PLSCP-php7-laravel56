@@ -54,15 +54,18 @@
         ], function (Map, IpsMeasure,DynamicMapServiceLayer,FeatureLayer, GraphicsLayer, Graphic, Point, Polyline, Polygon, InfoTemplate, SimpleMarkerSymbol, SimpleLineSymbol,
                      SimpleFillSymbol, PictureMarkerSymbol, TextSymbol, Color, on, dom) {
             var map = new Map("map", {
-                logo:false
+                logo:false,
+                center: [114.3489254,38.2477279]
             });
             var measure = new IpsMeasure({
                 map:map
             });
-
-
-
-
+            var lineLayerF1 = new GraphicsLayer();
+            var lineLayerF2 = new GraphicsLayer();
+            var lineLayerF3 = new GraphicsLayer();
+            var pointLayerF1 = new GraphicsLayer();
+            var pointLayerF2 = new GraphicsLayer();
+            var pointLayerF3= new GraphicsLayer();
             //初始化F1楼层平面图
             var f1 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floorone/MapServer");
             var f2 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floortwo/MapServer");
@@ -72,12 +75,9 @@
             map.addLayer(f3);
             f2.hide();
             f3.hide();
-            //初始化GraphicsLayer
-            var pointLayer = new GraphicsLayer();
-            map.addLayer(pointLayer);
             measure.startup();
 
-            var linelayer = new GraphicsLayer();
+
             /**
             var layer = new GraphicsLayer();
             var line= new Polyline([[114.348556,38.247946],[114.348769,38.247855]]);
@@ -88,12 +88,7 @@
             map.addLayer(layer);
              **/
 
-
-
-
-
-
-            function addUserPoint(id, lng, lat, name, phone, status) {
+            function addUserPoint(id, lng, lat, name, phone,floor,status) {
 
                 //定义点的几何体
                 //38.2477770 114.3489115
@@ -113,17 +108,30 @@
 
                 infoTemplate.setContent(
                     "<b>名称:</b><span>${name}</span><br>"
-                    + "<b>手机号:</b><span>${phone}</span><br><br>"
+                    + "<b>手机号:</b><span>${phone}</span><br>"
+                    + "<button class='' onclick=\"javascript:window.location.href='www.baidu.com'\" >查看该用户轨迹</button>"
                 );
                 var picgr = new Graphic(picpoint, picSymbol, attr, infoTemplate);
-                pointLayer.add(picgr);
+                if (floor == 1){
+                    pointLayerF1.add(picgr);
+                    map.addLayer(pointLayerF1);
+                }
+                if (floor == 2){
+                    pointLayerF2.add(picgr);
+                    map.addLayer(pointLayerF2);
+                }
+                if (floor == 3){
+                    pointLayerF3.add(picgr);
+                    map.addLayer(pointLayerF3);
+                }
             }
+            var lineArrayF1=[];
+            var lineArrayF2=[];
+            var lineArrayF3=[];
 
         /**
          * 从数据库读取用户列表和用户最新坐标并更新界面
          */
-
-        var lineArray=[];
         function getDataAndRefresh() {
 
             // 从云端读取数据
@@ -133,13 +141,14 @@
 
                     if (dat.status == 0) {
 
-                        // var lineArray=new Array();
                         // 删除数据
-                        pointLayer.clear();
+                        pointLayerF1.clear();
+                        pointLayerF2.clear();
+                        pointLayerF3.clear();
                         // 添加人
                         //注销掉因为先单用户测试
                         // for (var i in dat.data) {
-                        for (var i=0; i<1; i++) {
+                        for (var i=0; i<10; i++) {
                             // console.log(dat.data[i].username);
                             // console.log(dat.data[i].location.lat);
                             addUserPoint(
@@ -148,37 +157,44 @@
                                 dat.data[i].location.lat,
                                 dat.data[i].username,
                                 dat.data[i].tel_number,
+                                dat.data[i].location.floor,
                                 'normal'
                             );
-
-                            lineArray.push([dat.data[i].location.lng,dat.data[i].location.lat]);
-                            var line= new Polyline(lineArray);
-                            //定义线的符号
-                            var lineSymbol  = new SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, new Color([0, 50, 250]), 3);
-                            var linegr=new Graphic(line,lineSymbol);
-                            linelayer.add(linegr);
-                            map.addLayer(linelayer);
-
+/**
                             if (dat.data[i].location.floor == 1) {
-                                f1.show();
-                                f2.hide();
-                                f3.hide();
+                                lineArrayF1.push([dat.data[i].location.lng,dat.data[i].location.lat]);
+                                var line= new Polyline(lineArrayF1);
+                                //定义线的符号
+                                var lineSymbol  = new SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, new Color([0, 50, 250]), 3);
+                                var linegr=new Graphic(line,lineSymbol);
+                                lineLayerF1.add(linegr);
+                                map.addLayer(lineLayerF1);
 
                             }
                             if (dat.data[i].location.floor == 2) {
 
-                                f1.hide();
-                                f3.hide();
-                                f2.show();
+                                lineArrayF2.push([dat.data[i].location.lng,dat.data[i].location.lat]);
+                                var line= new Polyline(lineArrayF2);
+                                //定义线的符号
+                                var lineSymbol  = new SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, new Color([0, 50, 250]), 3);
+                                var linegr=new Graphic(line,lineSymbol);
+                                lineLayerF2.add(linegr);
+                                map.addLayer(lineLayerF2);
 
                             }
                             if (dat.data[i].location.floor == 3) {
 
-                                f1.hide();
-                                f2.hide();
-                                f3.show()
+                                lineArrayF3.push([dat.data[i].location.lng,dat.data[i].location.lat]);
+                                var line= new Polyline(lineArrayF3);
+                                //定义线的符号
+                                var lineSymbol  = new SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, new Color([0, 50, 250]), 3);
+                                var linegr=new Graphic(line,lineSymbol);
+                                lineLayerF3.add(linegr);
+                                map.addLayer(lineLayerF3);
 
                             }
+**/
+
                         }
 
                     } else {
@@ -187,6 +203,32 @@
                 }
             );
         }
+            on(dom.byId("render1"),"click",function () {
+                f1.show();
+                f2.hide();
+                f3.hide();
+                pointLayerF1.show();
+                pointLayerF2.hide();
+                pointLayerF3.hide();
+            });
+            on(dom.byId("render2"),"click",function () {
+
+                f1.hide();
+                f3.hide();
+                f2.show();
+                pointLayerF1.hide();
+                pointLayerF3.hide();
+                pointLayerF2.show();
+            });
+            on(dom.byId("render3"),"click",function () {
+
+                f1.hide();
+                f2.hide();
+                f3.show();
+                pointLayerF1.hide();
+                pointLayerF3.hide();
+                pointLayerF2.show();
+            });
 
         //循环执行
         setInterval(getDataAndRefresh, (INTERVAL_TIME * 1000))
@@ -198,6 +240,9 @@
     <div class="row">
         <div class="map-col">
             <div id="map"></div>
+            <button id="render1">F1</button>
+            <button id="render2">F2</button>
+            <button id="render3">F3</button>
         </div>
     </div>
 @stop
