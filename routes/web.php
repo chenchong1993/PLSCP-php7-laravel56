@@ -51,6 +51,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::any('normalMap','PageController@normalMap'); //普通地图
     Route::any('poiMap','PageController@poiMap'); //兴趣点图
     Route::any('routeMap','PageController@routeMap'); //路网图
+    Route::any('heatMap','PageController@heatMap'); //热力图
     Route::any('userTrail','PageController@userTrail');
     //普通查询
     Route::any('nameSearch','PageController@nameSearch'); //名称查询
@@ -61,6 +62,7 @@ Route::group(['middleware' => 'web'], function () {
 
 
 Route::group(['prefix' => 'api'], function () {
+    Route::post('apiTest', 'ApiController@apiTest');//测试路由
     Route::post('apiUserAdd', 'ApiController@apiUserAdd');//添加用户
     Route::post('apiSearchResult', 'ApiController@apiSearchResult');//添加用户
     Route::any('apiUserDelete/{uid}','ApiController@apiUserDelete'); //删除用户
@@ -69,5 +71,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::post('apiAddUserLocation', 'ApiController@apiAddUserLocation');//获取用户坐标
     Route::get('apiGetAllUserNewLocationList', 'ApiController@apiGetAllUserNewLocationList');//从数据库中获取用户位置信息
     Route::post('apiAddObs', 'ApiController@apiAddObs');//获取观测数据
-    });
+    Route::any('apiSensor', 'ApiController@apiSensor');//获取观测数据
+
+});
 });

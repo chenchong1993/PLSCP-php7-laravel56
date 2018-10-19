@@ -120,13 +120,13 @@
                         <a href="#"> <i class="Hui-iconfont">&#xe6c1;</i>热力图<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{ url('')}}">信号强度热力图</a>
+                                <a href="{{ url('heatMap')}}">信号强度热力图</a>
                             </li>
                             <li>
-                                <a href="{{ url('')}}">定位精度热力图</a>
+                                <a href="{{ url('heatMap')}}">定位精度热力图</a>
                             </li>
                             <li>
-                                <a href="{{ url('')}}">精度因子热力图</a>
+                                <a href="{{ url('heatMap')}}">精度因子热力图</a>
                             </li>
                         </ul>
                     </li>

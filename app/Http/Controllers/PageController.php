@@ -144,6 +144,13 @@ class PageController extends Controller
         return view('map.routemap');
     }
     /**
+     * 热力图
+     */
+    public function heatMap()
+    {
+        return view('map.heatmap');
+    }
+    /**
      * 轨迹模拟图
      */
     public function userTrail()
@@ -174,7 +181,8 @@ class PageController extends Controller
      */
     public function pushToOne()
     {
-        $user = User::where('status' ,'=', '1')->get();
+        $user = User::where('status' ,'=', '1')->paginate(5);
+//        $user = User::paginate(5);
         if ($user->isEmpty()){
             return redirect('pushToOne')->with('error','当前无用户在线');
         }

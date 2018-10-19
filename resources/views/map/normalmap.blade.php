@@ -51,7 +51,7 @@
             "dojo/on",
             "dojo/dom",
             "dojo/domReady!"
-        ], function (Map, IpsMeasure,DynamicMapServiceLayer, FeatureLayer, GraphicsLayer, Graphic, Point, Polyline, Polygon, InfoTemplate, SimpleMarkerSymbol, SimpleLineSymbol,
+        ], function (Map, IpsMeasure,DynamicMapServiceLayer,FeatureLayer, GraphicsLayer, Graphic, Point, Polyline, Polygon, InfoTemplate, SimpleMarkerSymbol, SimpleLineSymbol,
                      SimpleFillSymbol, PictureMarkerSymbol, TextSymbol, Color, on, dom) {
             var map = new Map("map", {
                 logo:false
@@ -76,6 +76,18 @@
             var pointLayer = new GraphicsLayer();
             map.addLayer(pointLayer);
             measure.startup();
+
+            var linelayer = new GraphicsLayer();
+            /**
+            var layer = new GraphicsLayer();
+            var line= new Polyline([[114.348556,38.247946],[114.348769,38.247855]]);
+            //定义线的符号
+            var lineSymbol  = new SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, new Color([0, 50, 250]), 3);
+            var linegr=new Graphic(line,lineSymbol);
+            layer.add(linegr);
+            map.addLayer(layer);
+             **/
+
 
 
 
@@ -111,6 +123,7 @@
          * 从数据库读取用户列表和用户最新坐标并更新界面
          */
 
+        var lineArray=[];
         function getDataAndRefresh() {
 
             // 从云端读取数据
@@ -120,16 +133,15 @@
 
                     if (dat.status == 0) {
 
+                        // var lineArray=new Array();
                         // 删除数据
                         pointLayer.clear();
                         // 添加人
-                        // console.log('000000000000000000');
-                        console.log(dat.data);
                         //注销掉因为先单用户测试
-                        for (var i in dat.data) {
-                        // for (var i=0; i<10; i++) {
-                            console.log(dat.data[i].username);
-                            console.log(dat.data[i].location.lat);
+                        // for (var i in dat.data) {
+                        for (var i=0; i<1; i++) {
+                            // console.log(dat.data[i].username);
+                            // console.log(dat.data[i].location.lat);
                             addUserPoint(
                                 dat.data[i].id,
                                 dat.data[i].location.lng,
@@ -138,6 +150,15 @@
                                 dat.data[i].tel_number,
                                 'normal'
                             );
+
+                            lineArray.push([dat.data[i].location.lng,dat.data[i].location.lat]);
+                            var line= new Polyline(lineArray);
+                            //定义线的符号
+                            var lineSymbol  = new SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, new Color([0, 50, 250]), 3);
+                            var linegr=new Graphic(line,lineSymbol);
+                            linelayer.add(linegr);
+                            map.addLayer(linelayer);
+
                             if (dat.data[i].location.floor == 1) {
                                 f1.show();
                                 f2.hide();
@@ -171,6 +192,8 @@
         setInterval(getDataAndRefresh, (INTERVAL_TIME * 1000))
 
         });
+
+
     </script>
     <div class="row">
         <div class="map-col">

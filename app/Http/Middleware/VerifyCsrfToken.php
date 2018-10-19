@@ -13,6 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
+        'api/apiTest',
         'api/apiUserAdd',
         'api/apiUserDelete/{uid}',
         'api/apiUserUpdate/{uid}',
@@ -20,5 +21,6 @@ class VerifyCsrfToken extends Middleware
         'api/apiGetUid',
         'api/apiAddUserLocation',
         'api/apiAddObs'
+//        'api/apiSensor'
     ];
 }

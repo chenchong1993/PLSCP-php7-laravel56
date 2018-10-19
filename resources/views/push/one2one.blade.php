@@ -129,15 +129,23 @@
             if (!conn) {
                 return false;
             }
+            /**
 //            给终端发消息模板
             var msgJson = '"{\\"Type\\":1,\\"Data\\":{\\"from\\":0,\\"to\\":0,\\"content\\":\\"{\\\\\\"_id\\\\\\":3,\\\\\\"content\\\\\\":{\\\\\\"_id\\\\\\":3,\\\\\\"contentType\\\\\\":3,\\\\\\"fileName\\\\\\":null,\\\\\\"json\\\\\\":\\\\\\"'+message+'\\\\\\"},\\\\\\"contentType\\\\\\":3,\\\\\\"conversationId\\\\\\":\\\\\\"1536888885424\\\\\\",\\\\\\"conversationType\\\\\\":1,\\\\\\"createTime\\\\\\":1536888940315,\\\\\\"direct\\\\\\":2,\\\\\\"fileurl\\\\\\":null,\\\\\\"fromUserId\\\\\\":889,\\\\\\"isImportance\\\\\\":false,\\\\\\"lat\\\\\\":0.0,\\\\\\"lon\\\\\\":0.0,\\\\\\"msgId\\\\\\":0,\\\\\\"serverMessageId\\\\\\":null,\\\\\\"status\\\\\\":0,\\\\\\"targetIDs\\\\\\":\\\\\\"0\\\\\\"}\\",\\"tag\\":\\"1\\",\\"timestamp\\":1536888940}}"';
 //          给云端发消息模板
-            console.log(msgJson);
-//          var msgJson = message;
-            var sengMsg = '{"type":1,"to":'+push_user_id+',"From":29914377884794889,"text":' + msgJson + ',"appid":10,"time":1508898308,"platform":1}'
+//             var msgJson = message;
+            var sengMsg = '{"type":1,"to":'+push_user_id+',"From":29914377884794889,"text":' + msgJson + ',"appid":10,"time":1508898308,"platform":1}';
             conn.send(sengMsg);
             console.log(sengMsg);
             return false
+             **/
+            var msgJson = '"{\\"Type\\":2,\\"Data\\":{\\"from\\":31783766124920837,\\"to\\":29914377884794889,\\"content\\":\\"{\\\\\\"_id\\\\\\":3,\\\\\\"content\\\\\\":{\\\\\\"_id\\\\\\":3,\\\\\\"contentType\\\\\\":3,\\\\\\"fileName\\\\\\":null,\\\\\\"json\\\\\\":\\\\\\"'+message+'\\\\\\"},\\\\\\"contentType\\\\\\":3,\\\\\\"conversationId\\\\\\":\\\\\\"1536888885424\\\\\\",\\\\\\"conversationType\\\\\\":1,\\\\\\"createTime\\\\\\":1536888940315,\\\\\\"direct\\\\\\":2,\\\\\\"fileurl\\\\\\":null,\\\\\\"fromUserId\\\\\\":31783766124920837,\\\\\\"isImportance\\\\\\":false,\\\\\\"lat\\\\\\":0.0,\\\\\\"lon\\\\\\":0.0,\\\\\\"msgId\\\\\\":0,\\\\\\"serverMessageId\\\\\\":null,\\\\\\"status\\\\\\":0,\\\\\\"targetIDs\\\\\\":\\\\\\"29914377884794889\\\\\\"}\\",\\"tag\\":\\"1\\",\\"timestamp\\":1536888940}}"';
+
+            var sengMsg = '{"type":1,"to":'+push_user_id+',"text":'+msgJson+',"appid":10,"time":1508898308,"platform":1}';
+            conn.send(sengMsg);
+
+            // notify("发送成功","opt_ok");
+            return true;
 
         }
         /**
@@ -253,6 +261,9 @@
                 @endforeach
                 </tbody>
             </table>
+        </div>
+        <div class="pull-right">
+            {{ $users->render() }}
         </div>
     </div>
     {{--下面是聊天窗口布局--}}

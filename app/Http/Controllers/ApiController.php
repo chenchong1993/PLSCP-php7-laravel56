@@ -12,11 +12,27 @@ use App\Obs;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use phpDocumentor\Reflection\DocBlock\Tags\Uses;
 use function PHPSTORM_META\type;
 
 
 class ApiController extends Controller
 {
+    /**
+     * 测试路由，用来看隧道是否畅通
+     */
+    public function apiTest()
+    {
+        $validator = Validator::make(rq(), [
+            'key' => 'required',
+        ]);
+
+        if ($validator->fails())
+            return err(1, $validator->messages());
+        return 'true';
+
+    }
+
     /**
      * 用户注册接口
      * @param Request $request
@@ -299,6 +315,7 @@ class ApiController extends Controller
         return suc();
 
     }
+
     /**
      * 终端根据用户名获取UID接口
      * 接口访问链接http://plscp.free.idcfengye.com/api/apiGetUid
@@ -328,7 +345,6 @@ class ApiController extends Controller
     /**
      * 返回所有用户的最新位置信息列表
      */
-
     public function apiGetAllUserNewLocationList()
     {
         $users = User::get();
@@ -340,12 +356,14 @@ class ApiController extends Controller
     }
 
     /**
-     * 传感器数据接口
+     * 观测数据上传接口
      */
     public function apiAddObs()
     {
         $validator = Validator::make(rq(), [
             'uid' => 'required',
+            'lng' => 'required',
+            'lat' => 'required',
             'wifi' => '',
             'blue_tooth'=>'',
             'sensor'=>''
@@ -356,12 +374,27 @@ class ApiController extends Controller
 
         $obs = new Obs();
         $obs->uid=rq('uid');
+        $obs->lng=rq('lng');
+        $obs->lat=rq('lat');
         $obs->wifi=rq('wifi');
         $obs->blue_tooth=rq('blue_tooth');
         $obs->sensor=rq('sensor');
         $obs->save();
         return suc();
 
+    }
 
+    /**
+     * 分存数据
+     */
+    public function apiSensor()
+    {
+        $obs = Obs::all();
+
+//        dump($obs);
+        $data = $obs[0]->sensor;
+//        $json_data = json_decode($data);
+//        dd($json_data);
+        return $data;
     }
 }
