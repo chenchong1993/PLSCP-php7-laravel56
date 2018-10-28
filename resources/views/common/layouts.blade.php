@@ -29,6 +29,8 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="{{ asset('Ips_api_javascript/echarts.js') }}"></script>
+    <script src="{{ asset('Ips_api_javascript/echartsExtent.js') }}"></script>
     <link rel="stylesheet" type="text/css" href="{{ asset('static/Ips_api_javascript/dijit/themes/tundra/tundra.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('static/Ips_api_javascript/esri/css/esri.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('static/Ips_api_javascript/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}" />
@@ -120,7 +122,7 @@
                         <a href="#"> <i class="Hui-iconfont">&#xe6c1;</i>热力图<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{ url('heatMap')}}">信号强度热力图</a>
+                                <a href="{{ url('signalHeatMapF1')}}">信号强度热力图</a>
                             </li>
                             <li>
                                 <a href="{{ url('heatMap')}}">定位精度热力图</a>

@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Coo;
 use App\Group;
 use App\Poi;
 use App\User;
@@ -19,6 +20,10 @@ class PageController extends Controller
     /**
      * 主页
      */
+    public function test1()
+    {
+        return view('test.test1');
+    }
     public function index()
     {
         return view('common.index');
@@ -150,12 +155,46 @@ class PageController extends Controller
     {
         return view('map.heatmap');
     }
+
+    /**
+     * 信号强度热力图
+     */
+    public function signalHeatMapF1()
+    {
+        return view('heatmap.signalHeatMapF1');
+    }
+    public function signalHeatMapF2()
+    {
+        return view('heatmap.signalHeatMapF2');
+    }
+    public function signalHeatMapF3()
+    {
+        return view('heatmap.signalHeatMapF3');
+    }
     /**
      * 轨迹模拟图
      */
     public function userTrail()
     {
-        return view('map.userTrail');
+
+        $uid = rq('uid');
+        $startTime = rq('startTime');//"2018-10-22 11:36:07";//rq('startTime');
+        $endTime = rq('endTime');//"2018-10-22 11:38:19";//rq('endTime');
+        if ($startTime== '' or $endTime == ''){
+            return '输入时间段为空';
+        }
+        $userPositionList = Coo::where('uid' ,'=', $uid)->where('created_at', '>=', $startTime)->where('created_at', '<=', $endTime)->get();
+        if ($userPositionList->isEmpty()){
+            return '输入有误或该时间段内没有数据';
+        }
+        return view('map.userTrail',['userPositionLists' => $userPositionList]);
+    }
+
+    public function userTrail1()
+    {
+
+
+        return view('test.userTrail1');
     }
 
     /**

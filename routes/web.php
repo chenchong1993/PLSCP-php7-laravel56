@@ -32,7 +32,7 @@ function err($code, $data = null)
 /*
 |--------------------------------------------------------------------------
 | Web Routes
-|--------------------------------------------------------------------------
+|----------------------------------------userTrail----------------------------------
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
@@ -52,16 +52,22 @@ Route::group(['middleware' => 'web'], function () {
     Route::any('poiMap','PageController@poiMap'); //兴趣点图
     Route::any('routeMap','PageController@routeMap'); //路网图
     Route::any('heatMap','PageController@heatMap'); //热力图
-    Route::any('userTrail','PageController@userTrail');
+    Route::any('userTrail/','PageController@userTrail');
+    Route::any('userTrail1/','PageController@userTrail1');
     //普通查询
     Route::any('nameSearch','PageController@nameSearch'); //名称查询
     Route::any('extentSearch','PageController@extentSearch'); //扩展查询
     //消息推送
     Route::any('pushToOne','PageController@pushToOne'); //私信
     Route::any('pushToMore','PageController@pushToMore'); //群发
+    //热力图
+    Route::any('signalHeatMapF1','PageController@signalHeatMapF1'); //信号强度热力图1层
+    Route::any('signalHeatMapF2','PageController@signalHeatMapF2'); //信号强度热力图1层
+    Route::any('signalHeatMapF3','PageController@signalHeatMapF3'); //信号强度热力图1层
+    Route::any('test1','PageController@test1'); //群发
 
 
-Route::group(['prefix' => 'api'], function () {
+    Route::group(['prefix' => 'api'], function () {
     Route::post('apiTest', 'ApiController@apiTest');//测试路由
     Route::post('apiUserAdd', 'ApiController@apiUserAdd');//添加用户
     Route::post('apiSearchResult', 'ApiController@apiSearchResult');//添加用户

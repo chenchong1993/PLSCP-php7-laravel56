@@ -324,8 +324,8 @@ class ApiController extends Controller
     public function apiGetUid()
     {
         $validator = Validator::make(rq(), [
-            'username' => 'required|string',
-        ]);
+        'username' => 'required|string',
+    ]);
 
         if ($validator->fails())
             return err(1, $validator->messages());

@@ -33,19 +33,23 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('static/Ips_api_javascript/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('static/Ips_api_javascript/Ips/css/widget.css') }}" />
     <script type="text/javascript" src="{{ asset('static/Ips_api_javascript/init.js') }}"></script>
+    <script src="{{ asset('static/vendor/jquery/jquery.min.js') }}"></script>
 
 
     <style type="text/css">
-        .user-msg{position:absolute;left:810px;top:10px;z-index:auto;width:500px;background-color:#f6f6f6}
-        .map1-col{position:absolute;left:10px;top:10px;z-index:0;width:800px;background-color:#f6f6f6}
-        .map2-col{position:absolute;left:10px;top:310px;z-index:1;width:800px;background-color:#f6f6f6}
-        .map3-col{position:absolute;left:810px;top:310px;z-index:auto;width:500px;background-color:#f6f6f6}
+        /*.user-msg{position:absolute;left:810px;top:10px;z-index:auto;width:500px;background-color:#f6f6f6}*/
+        .map1-col{position:absolute;left:10px;top:10px;z-index:0;width:1200px;background-color:#f6f6f6}
+        .map2-col{position:absolute;left:10px;top:350px;z-index:1;width:1200px;background-color:#f6f6f6}
+        .map3-col{position:absolute;left:10px;top:740px;z-index:3;width:600px;background-color:#f6f6f6}
     </style>
 </head>
 <body style="height: 100%; margin: 0">
 
 <script>
-    var INTERVAL_TIME = 2; //数据刷新间隔时间
+    function returnNormalMap() {
+        window.location.href = '/normalMap';
+    }
+    var INTERVAL_TIME = 1; //数据刷新间隔时间
     require([
         "Ips/map",
         "Ips/widget/IpsMeasure",
@@ -87,6 +91,59 @@
         map1.addLayer(f1);
         map2.addLayer(f2);
         map3.addLayer(f3);
+        var pointLayerF1 = new GraphicsLayer();
+        var pointLayerF2 = new GraphicsLayer();
+        var pointLayerF3= new GraphicsLayer();
+
+        function addUserPoint(id,uid, time,lng, lat,floor,status) {
+
+            var name = '当前用户';
+            var picpoint = new Point(lng,lat);
+            // //定义点的图片符号
+            var picSymbol;
+            if (status == 'normal')
+                picSymbol = new PictureMarkerSymbol("{{ asset('static/Ips_api_javascript/Ips/image/marker.png') }}",24,24);
+            else if (status == 'danger')
+                picSymbol = new PictureMarkerSymbol("{{ asset('static/Ips_api_javascript/Ips/image/marker.png') }}",24,24);
+            //定义点的图片符号
+            var attr = {"name": name, "time": time};
+            //信息模板
+            var infoTemplate = new InfoTemplate();
+            infoTemplate.setTitle('用户');
+            infoTemplate.setContent(
+                "<b>名称:</b><span>${name}</span><br>"
+                + "<b>时间:</b><span>${time}</span><br>"
+                + "<button class='' onclick='returnNormalMap()' >返回查看用户分布图</button>"
+            );
+            var picgr = new Graphic(picpoint, picSymbol, attr, infoTemplate);
+            if (floor == 1){
+                pointLayerF1.add(picgr);
+                map1.addLayer(pointLayerF1);
+            }
+            if (floor == 2){
+                pointLayerF2.add(picgr);
+                map2.addLayer(pointLayerF2);
+            }
+            if (floor == 3){
+                pointLayerF3.add(picgr);
+                map3.addLayer(pointLayerF3);
+            }
+        }
+        /**
+         * 从数据库读取用户列表和用户最新坐标并更新界面
+         */
+        @foreach($userPositionLists as $userPositionList)
+{{--        console.log('{{$userPositionList->updated_at}}');--}}
+        addUserPoint(
+                {{$userPositionList->id}},
+                {{$userPositionList->uid}},
+                 '{{$userPositionList->updated_at}}',
+                {{$userPositionList->lng}},
+                {{$userPositionList->lat}},
+                {{$userPositionList->floor}},
+                'normal'
+        );
+        @endforeach
 
     });
 
@@ -102,9 +159,6 @@
     </div>
     <div class="map3-col">
         <div id="map3"></div>
-    </div>
-    <div class="user-msg">
-        这里有一个消息提示框
     </div>
 </div>
 </body>
