@@ -6,18 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>大众位置服务云平台</title>
-
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('static/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-
     <!-- MetisMenu CSS -->
     <link href="{{ asset('static/vendor/metisMenu/metisMenu.min.css') }}" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="{{ asset('static/dist/css/sb-admin-2.css') }}" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="{{ asset('static/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     {{--HUI的图标库--}}
@@ -43,6 +38,7 @@
     </style>
 </head>
 <body>
+{{--/*定义放大缩小按钮风格*/--}}
 <style>
     html, body, #map1,map2,map3{
         margin: 0;
@@ -50,10 +46,13 @@
         width: 100%;
         height: 100%;
     }
-
 </style>
-
 <script>
+    /**
+     * 定义全局变量
+     **/
+    var INTERVAL_TIME = 1; //数据刷新间隔时间
+    var POINTSIZE = 24;    //默认图片大小为24*24
     /**
      * 跳转到用户轨迹页面
      * */
@@ -63,8 +62,9 @@
         var endTime = $('#endTime').val();
         window.location.href = '/userTrail?uid=' + uid + '&startTime=' + startTime +'&endTime=' + endTime;
     }
-    var INTERVAL_TIME = 1; //数据刷新间隔时间
-    var POINTSIZE = 24;    //默认图片大小为24*24
+    /**
+     * 地图需求文件
+     */
     require([
         "Ips/map",
         "Ips/widget/IpsMeasure",
@@ -87,25 +87,33 @@
         "dojo/domReady!"
     ], function (Map, IpsMeasure,DynamicMapServiceLayer,FeatureLayer, GraphicsLayer, Graphic, Point, Polyline, Polygon, InfoTemplate, SimpleMarkerSymbol, SimpleLineSymbol,
                  SimpleFillSymbol, PictureMarkerSymbol, TextSymbol, Color, on, dom) {
+        /**
+         * 定义三张地图，并设定必要参数
+         */
         var map1 = new Map("map1", {
             logo:false,
-            center: [114.3489254,38.24769],
+            center: [114.3489254,38.24772],
         });
         var map2 = new Map("map2", {
             logo:false,
-            center: [114.3489254,38.24769],
+            center: [114.3489254,38.24777],
         });
         var map3 = new Map("map3", {
             logo:false,
-            center: [114.3486414,38.24770],
+            center: [114.3486414,38.247770],
         });
-        //初始化F1楼层平面图
+        /**
+         * 初始化楼层平面图
+         */
         var f1 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floorone/MapServer");
         var f2 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floortwo/MapServer");
         var f3 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floorthree/MapServer");
         map1.addLayer(f1);
         map2.addLayer(f2);
         map3.addLayer(f3);
+        /**
+         * 定义点图层
+         */
         var pointLayerF1 = new GraphicsLayer();
         var pointLayerF2 = new GraphicsLayer();
         var pointLayerF3= new GraphicsLayer();
@@ -240,10 +248,12 @@
                 }
             );
         }
+        /**
+         * 刷新频率
+         */
         setInterval(getDataAndRefresh, (INTERVAL_TIME * 1000))
     });
 </script>
-
 <div class="row">
     <div class="map1-col">
         <div id="map1"></div>
@@ -254,7 +264,6 @@
     <div class="map3-col">
         <div id="map3"></div>
     </div>
-
 </div>
 </body>
 </html>

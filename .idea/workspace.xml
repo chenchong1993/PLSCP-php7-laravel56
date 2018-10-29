@@ -51,7 +51,7 @@
         <counts>
           <entry key="dummy" value="11" />
           <entry key="html" value="19" />
-          <entry key="php" value="7621" />
+          <entry key="php" value="7896" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.composer.command.options" />
@@ -77,7 +77,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="4704" />
+          <entry key="Blade" value="4979" />
           <entry key="HTML" value="19" />
           <entry key="PHP" value="2917" />
           <entry key="PLAIN_TEXT" value="11" />
@@ -92,21 +92,29 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/map/normalmap.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="168" selection-start-line="168" selection-end-line="168" />
+            <state relative-caret-position="238">
+              <caret line="107" column="36" selection-start-line="107" selection-start-column="36" selection-end-line="107" selection-end-column="36" />
               <folding>
+                <element signature="n#head#0;n#html#0;n#!!top" />
+                <element signature="e#2552#2661#0#HTML" />
+                <element signature="e#2662#2688#0#HTML" />
+                <element signature="e#2533#2563#0#HTML" />
+                <element signature="e#3079#3104#0#HTML" />
+                <element signature="e#2876#3493#0#HTML" />
+                <element signature="e#3995#4034#0#HTML" />
+                <element signature="e#3781#3860#0#HTML" />
+                <element signature="e#3898#3977#0#HTML" />
+                <element signature="e#4015#4094#0#HTML" />
+                <element signature="e#4397#4432#0#HTML" />
+                <element signature="e#4858#4890#0#HTML" />
+                <element signature="e#5110#5144#0#HTML" />
                 <element signature="e#5214#6884#0#HTML" />
+                <element signature="e#6893#6942#0#HTML" />
+                <element signature="e#6761#10471#0#HTML" />
+                <element signature="e#7572#8100#0#HTML" />
                 <element signature="e#7692#9620#0#HTML" />
+                <element signature="e#11752#11783#0#HTML" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/test/normalmap.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-388">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
             </state>
           </provider>
         </entry>
@@ -114,10 +122,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/map/userTrail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="175" column="54" selection-start-line="175" selection-start-column="54" selection-end-line="175" selection-end-column="54" />
+            <state relative-caret-position="162">
+              <caret line="108" column="8" lean-forward="true" selection-start-line="108" selection-start-column="8" selection-end-line="110" selection-end-column="11" />
               <folding>
+                <element signature="n#head#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#1;n#body#0;n#html#0;n#!!top" />
+                <element signature="e#2651#2722#0#HTML" />
+                <element signature="e#2739#2810#0#HTML" />
+                <element signature="e#6910#8573#0#HTML" />
               </folding>
             </state>
           </provider>
@@ -498,12 +511,12 @@
       <workItem from="1540172338384" duration="46990000" />
       <workItem from="1540451354632" duration="27212000" />
       <workItem from="1540719676517" duration="9333000" />
-      <workItem from="1540776014576" duration="15091000" />
+      <workItem from="1540776014576" duration="17511000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="266179000" />
+    <option name="totallyTimeSpent" value="268599000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -862,21 +875,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/map/userTrail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="175" column="54" selection-start-line="175" selection-start-column="54" selection-end-line="175" selection-end-column="54" />
+        <state relative-caret-position="162">
+          <caret line="108" column="8" lean-forward="true" selection-start-line="108" selection-start-column="8" selection-end-line="110" selection-end-column="11" />
           <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" />
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="e#2651#2722#0#HTML" />
+            <element signature="e#2739#2810#0#HTML" />
+            <element signature="e#6910#8573#0#HTML" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/map/normalmap.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="168" selection-start-line="168" selection-end-line="168" />
+        <state relative-caret-position="238">
+          <caret line="107" column="36" selection-start-line="107" selection-start-column="36" selection-end-line="107" selection-end-column="36" />
           <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" />
+            <element signature="e#2552#2661#0#HTML" />
+            <element signature="e#2662#2688#0#HTML" />
+            <element signature="e#2533#2563#0#HTML" />
+            <element signature="e#3079#3104#0#HTML" />
+            <element signature="e#2876#3493#0#HTML" />
+            <element signature="e#3995#4034#0#HTML" />
+            <element signature="e#3781#3860#0#HTML" />
+            <element signature="e#3898#3977#0#HTML" />
+            <element signature="e#4015#4094#0#HTML" />
+            <element signature="e#4397#4432#0#HTML" />
+            <element signature="e#4858#4890#0#HTML" />
+            <element signature="e#5110#5144#0#HTML" />
             <element signature="e#5214#6884#0#HTML" />
+            <element signature="e#6893#6942#0#HTML" />
+            <element signature="e#6761#10471#0#HTML" />
+            <element signature="e#7572#8100#0#HTML" />
             <element signature="e#7692#9620#0#HTML" />
+            <element signature="e#11752#11783#0#HTML" />
           </folding>
         </state>
       </provider>

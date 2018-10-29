@@ -6,18 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>大众位置服务云平台</title>
-
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('static/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-
     <!-- MetisMenu CSS -->
     <link href="{{ asset('static/vendor/metisMenu/metisMenu.min.css') }}" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="{{ asset('static/dist/css/sb-admin-2.css') }}" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="{{ asset('static/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     {{--HUI的图标库--}}
@@ -34,8 +29,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('static/Ips_api_javascript/Ips/css/widget.css') }}" />
     <script type="text/javascript" src="{{ asset('static/Ips_api_javascript/init.js') }}"></script>
     <script src="{{ asset('static/vendor/jquery/jquery.min.js') }}"></script>
-
-
     <style type="text/css">
         /*.user-msg{position:absolute;left:810px;top:10px;z-index:auto;width:500px;background-color:#f6f6f6}*/
         .map1-col{position:absolute;left:10px;top:10px;z-index:0;width:1200px;background-color:#f6f6f6}
@@ -44,28 +37,29 @@
     </style>
 </head>
 <body style="height: 100%; margin: 0">
+{{--/*定义放大缩小按钮风格*/--}}
 <style>
-    /*html, body, #map1,map2,map3{*/
-        /*margin: 0;*/
-        /*padding: 0;*/
-        /*width: 100%;*/
-        /*height: 100%;*/
-    /*}*/
-
     #showbigger{
         position: fixed;top:30px;left:1000px;font-size: 18px;
-
     }
     #showsmaller{
         position: fixed;top:30px;left:1100px;font-size: 18px;
     }
 </style>
 <script>
+    /**
+     * 定义全局变量
+     **/
+    var POINTSIZE = 15;    //默认图片大小为15*15
+    /**
+     * 返回普通地图按钮的方法
+     */
     function returnNormalMap() {
         window.location.href = '/normalMap';
     }
-    var INTERVAL_TIME = 1; //数据刷新间隔时间
-    var POINTSIZE = 15;    //默认图片大小为15*15
+    /**
+     * 地图需求文件
+     */
     require([
         "Ips/map",
         "Ips/widget/IpsMeasure",
@@ -88,28 +82,39 @@
         "dojo/domReady!"
     ], function (Map, IpsMeasure,DynamicMapServiceLayer,FeatureLayer, GraphicsLayer, Graphic, Point, Polyline, Polygon, InfoTemplate, SimpleMarkerSymbol, SimpleLineSymbol,
                  SimpleFillSymbol, PictureMarkerSymbol, TextSymbol, Color, on, dom) {
+       /**
+        * 定义三张地图，并设定必要参数
+        */
         var map1 = new Map("map1", {
             logo:false,
-            center: [114.3489254,38.24769],
+            center: [114.3489254,38.24772],
         });
         var map2 = new Map("map2", {
             logo:false,
-            center: [114.3489254,38.24769],
+            center: [114.3489254,38.24777],
         });
         var map3 = new Map("map3", {
             logo:false,
-            center: [114.3486414,38.24770],
+            center: [114.3486414,38.247770],
         });
-        //初始化F1楼层平面图
+        /**
+         * 初始化楼层平面图
+         */
         var f1 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floorone/MapServer");
         var f2 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floortwo/MapServer");
         var f3 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floorthree/MapServer");
         map1.addLayer(f1);
         map2.addLayer(f2);
         map3.addLayer(f3);
+        /**
+         * 定义点图层
+         */
         var pointLayerF1 = new GraphicsLayer();
         var pointLayerF2 = new GraphicsLayer();
         var pointLayerF3= new GraphicsLayer();
+        /**
+         * 放大缩小点图标按钮的具体实现方法
+         */
         on(dom.byId("showbigger"),"click",function () {
             POINTSIZE++;
             pointLayerF1.clear();
@@ -126,9 +131,10 @@
             console.log(POINTSIZE);
             addPointToMap();
         });
-
+        /**
+         * 添加用户点方法
+         */
         function addUserPoint(id,uid, time,lng, lat,floor,status) {
-
             var name = '当前用户';
             var picpoint = new Point(lng,lat);
             // //定义点的图片符号
@@ -162,7 +168,7 @@
             }
         }
         /**
-         * 从数据库读取用户列表和用户最新坐标并更新界面
+         * 添加所有用户点到地图方法，分楼层显示并划定了建筑物边界，楼外不显示
          */
         function addPointToMap() {
             @foreach($userPositionLists as $userPositionList)
@@ -197,16 +203,11 @@
                     );
                 }
             }
-
-
             @endforeach
         }
         addPointToMap();
     });
-
-
 </script>
-
 <div class="row">
     <div class="map1-col">
         <div id="map1"></div>
