@@ -78,6 +78,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('apiGetAllUserNewLocationList', 'ApiController@apiGetAllUserNewLocationList');//从数据库中获取用户位置信息
     Route::post('apiAddObs', 'ApiController@apiAddObs');//获取观测数据
     Route::any('apiSensor', 'ApiController@apiSensor');//获取观测数据
+    Route::any('generatSignalStrength', 'ApiController@generatSignalStrength');//获取观测数据
 
 });
 });

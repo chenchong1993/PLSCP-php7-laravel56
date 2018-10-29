@@ -44,12 +44,28 @@
     </style>
 </head>
 <body style="height: 100%; margin: 0">
+<style>
+    /*html, body, #map1,map2,map3{*/
+        /*margin: 0;*/
+        /*padding: 0;*/
+        /*width: 100%;*/
+        /*height: 100%;*/
+    /*}*/
 
+    #showbigger{
+        position: fixed;top:30px;left:1000px;font-size: 18px;
+
+    }
+    #showsmaller{
+        position: fixed;top:30px;left:1100px;font-size: 18px;
+    }
+</style>
 <script>
     function returnNormalMap() {
         window.location.href = '/normalMap';
     }
     var INTERVAL_TIME = 1; //数据刷新间隔时间
+    var POINTSIZE = 15;    //默认图片大小为15*15
     require([
         "Ips/map",
         "Ips/widget/IpsMeasure",
@@ -94,6 +110,22 @@
         var pointLayerF1 = new GraphicsLayer();
         var pointLayerF2 = new GraphicsLayer();
         var pointLayerF3= new GraphicsLayer();
+        on(dom.byId("showbigger"),"click",function () {
+            POINTSIZE++;
+            pointLayerF1.clear();
+            pointLayerF2.clear();
+            pointLayerF3.clear();
+            console.log(POINTSIZE);
+            addPointToMap();
+        });
+        on(dom.byId("showsmaller"),"click",function () {
+            POINTSIZE--;
+            pointLayerF1.clear();
+            pointLayerF2.clear();
+            pointLayerF3.clear();
+            console.log(POINTSIZE);
+            addPointToMap();
+        });
 
         function addUserPoint(id,uid, time,lng, lat,floor,status) {
 
@@ -102,7 +134,7 @@
             // //定义点的图片符号
             var picSymbol;
             if (status == 'normal')
-                picSymbol = new PictureMarkerSymbol("{{ asset('static/Ips_api_javascript/Ips/image/marker.png') }}",24,24);
+                picSymbol = new PictureMarkerSymbol("{{ asset('static/Ips_api_javascript/Ips/image/marker.png') }}",POINTSIZE,POINTSIZE);
             else if (status == 'danger')
                 picSymbol = new PictureMarkerSymbol("{{ asset('static/Ips_api_javascript/Ips/image/marker.png') }}",24,24);
             //定义点的图片符号
@@ -132,19 +164,21 @@
         /**
          * 从数据库读取用户列表和用户最新坐标并更新界面
          */
-        @foreach($userPositionLists as $userPositionList)
-{{--        console.log('{{$userPositionList->updated_at}}');--}}
-        addUserPoint(
-                {{$userPositionList->id}},
-                {{$userPositionList->uid}},
-                 '{{$userPositionList->updated_at}}',
-                {{$userPositionList->lng}},
-                {{$userPositionList->lat}},
-                {{$userPositionList->floor}},
+        function addPointToMap() {
+            @foreach($userPositionLists as $userPositionList)
+            {{--        console.log('{{$userPositionList->updated_at}}');--}}
+            addUserPoint(
+                    {{$userPositionList->id}},
+                    {{$userPositionList->uid}},
+                '{{$userPositionList->updated_at}}',
+                    {{$userPositionList->lng}},
+                    {{$userPositionList->lat}},
+                    {{$userPositionList->floor}},
                 'normal'
-        );
-        @endforeach
-
+            );
+            @endforeach
+        }
+        addPointToMap();
     });
 
 
@@ -156,6 +190,8 @@
     </div>
     <div class="map2-col">
         <div id="map2"></div>
+        <button id="showbigger">放大点</button>
+        <button id="showsmaller">缩小点</button>
     </div>
     <div class="map3-col">
         <div id="map3"></div>

@@ -364,6 +364,8 @@ class ApiController extends Controller
             'uid' => 'required',
             'lng' => 'required',
             'lat' => 'required',
+            'floor' => 'required',
+            'orien' => 'required',
             'wifi' => '',
             'blue_tooth'=>'',
             'sensor'=>''
@@ -376,6 +378,8 @@ class ApiController extends Controller
         $obs->uid=rq('uid');
         $obs->lng=rq('lng');
         $obs->lat=rq('lat');
+        $obs->floor=rq('floor');
+        $obs->orien=rq('orien');
         $obs->wifi=rq('wifi');
         $obs->blue_tooth=rq('blue_tooth');
         $obs->sensor=rq('sensor');
@@ -397,4 +401,11 @@ class ApiController extends Controller
 //        dd($json_data);
         return $data;
     }
+
+    /**
+     * 处理wifi 蓝牙生成信号强度
+     */
+    public function generatSignalStrength(){
+
+}
 }

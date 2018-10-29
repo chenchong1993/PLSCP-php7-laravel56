@@ -132,7 +132,7 @@ class PageController extends Controller
     }
 
     /**
-     * 平通地图
+     * 普通图
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function normalMap()
@@ -172,7 +172,7 @@ class PageController extends Controller
         return view('heatmap.signalHeatMapF3');
     }
     /**
-     * 轨迹模拟图
+     * 历史轨迹图
      */
     public function userTrail()
     {

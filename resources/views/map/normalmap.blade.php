@@ -34,8 +34,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('static/Ips_api_javascript/Ips/css/widget.css') }}" />
     <script type="text/javascript" src="{{ asset('static/Ips_api_javascript/init.js') }}"></script>
     <script src="{{ asset('static/vendor/jquery/jquery.min.js') }}"></script>
-
-
+    {{--修改三张地图尺寸--}}
     <style type="text/css">
         /*.user-msg{position:absolute;left:810px;top:10px;z-index:auto;width:500px;background-color:#f6f6f6}*/
         .map1-col{position:absolute;left:10px;top:10px;z-index:0;width:1200px;background-color:#f6f6f6}
@@ -43,17 +42,35 @@
         .map3-col{position:absolute;left:10px;top:740px;z-index:3;width:600px;background-color:#f6f6f6}
     </style>
 </head>
-<body style="height: 100%; margin: 0">
+<body>
+<style>
+    html, body, #map1,map2,map3{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    #showbigger{
+        position: absolute;top:30px;left:200px;font-size: 18px;
+    }
+    #showsmaller{
+        position: absolute;top:30px;left:280px;font-size: 18px;
+    }
+</style>
 
 <script>
+    /**
+     * 跳转到用户轨迹页面
+     * */
     function catUserTrail(uid) {
-
         console.log("2:",uid+" ");
         var startTime = $('#startTime').val();
         var endTime = $('#endTime').val();
         window.location.href = '/userTrail?uid=' + uid + '&startTime=' + startTime +'&endTime=' + endTime;
     }
     var INTERVAL_TIME = 1; //数据刷新间隔时间
+    var POINTSIZE = 24;    //默认图片大小为24*24
     require([
         "Ips/map",
         "Ips/widget/IpsMeasure",
@@ -98,19 +115,19 @@
         var pointLayerF1 = new GraphicsLayer();
         var pointLayerF2 = new GraphicsLayer();
         var pointLayerF3= new GraphicsLayer();
-
+        /**
+         * 添加点图标
+         * */
         function addUserPoint(id,uid, lng, lat, name, phone,floor,status) {
-
             //定义点的几何体
             //38.2477770 114.3489115
             var picpoint = new Point(lng,lat);
             // //定义点的图片符号
             var picSymbol;
             if (status == 'normal')
-                picSymbol = new PictureMarkerSymbol("{{ asset('static/Ips_api_javascript/Ips/image/marker.png') }}",24,24);
+                picSymbol = new PictureMarkerSymbol("{{ asset('static/Ips_api_javascript/Ips/image/marker.png') }}",POINTSIZE,POINTSIZE);
             else if (status == 'danger')
                 picSymbol = new PictureMarkerSymbol("{{ asset('static/Ips_api_javascript/Ips/image/marker.png') }}",24,24);
-
             //定义点的图片符号
             var attr = {"name": name, "phone": phone};
             //信息模板
@@ -119,8 +136,8 @@
             infoTemplate.setContent(
                 "<b>名称:</b><span>${name}</span><br>"
                 + "<b>手机号:</b><span>${phone}</span><br>"
-                + "<b>起始时间：</b><input type='text' name='startTime'class='' id='startTime' placeholder='2018-10-22 11:36:07'><br>"
-                + "<b>终止时间：</b><input type='text' name='endTime'class='' id='endTime' placeholder='2018-10-22 11:36:07'><br>"
+                + "<b>起始时间：</b><input type='text' name='startTime'class='' id='startTime' placeholder='2018-01-01 00:00:00'><br>"
+                + "<b>终止时间：</b><input type='text' name='endTime'class='' id='endTime' placeholder='2018-01-01 24:59:59'><br>"
                 + "<button class='' onclick=catUserTrail(" + "'" + uid + "'" + ") > 查看该用户轨迹</button>"
             );
             var picgr = new Graphic(picpoint, picSymbol, attr, infoTemplate);
@@ -208,10 +225,7 @@
             );
         }
         setInterval(getDataAndRefresh, (INTERVAL_TIME * 1000))
-
     });
-
-
 </script>
 
 <div class="row">
@@ -224,6 +238,7 @@
     <div class="map3-col">
         <div id="map3"></div>
     </div>
+
 </div>
 </body>
 </html>
