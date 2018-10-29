@@ -166,16 +166,39 @@
          */
         function addPointToMap() {
             @foreach($userPositionLists as $userPositionList)
-            {{--        console.log('{{$userPositionList->updated_at}}');--}}
-            addUserPoint(
-                    {{$userPositionList->id}},
-                    {{$userPositionList->uid}},
-                '{{$userPositionList->updated_at}}',
-                    {{$userPositionList->lng}},
-                    {{$userPositionList->lat}},
-                    {{$userPositionList->floor}},
-                'normal'
-            );
+                var lng={{$userPositionList->lng}};
+                var lat={{$userPositionList->lat}};
+                var floor={{$userPositionList->floor}};
+            if (floor==3){
+                if ((38.24766<lat)&&(lat<38.2478) &&(114.3485<lng)&&(lng<114.34871))
+                {
+                    addUserPoint(
+                            {{$userPositionList->id}},
+                            {{$userPositionList->uid}},
+                        '{{$userPositionList->updated_at}}',
+                            {{$userPositionList->lng}},
+                            {{$userPositionList->lat}},
+                            {{$userPositionList->floor}},
+                        'normal'
+                    );
+                }
+            } else {
+                if ((38.24766<lat)&&(lat<38.2478) &&(114.3485<lng)&&(lng<114.349238))
+                {
+                    console.log({{$userPositionList->floor}});
+                    addUserPoint(
+                            {{$userPositionList->id}},
+                            {{$userPositionList->uid}},
+                        '{{$userPositionList->updated_at}}',
+                            {{$userPositionList->lng}},
+                            {{$userPositionList->lat}},
+                            {{$userPositionList->floor}},
+                        'normal'
+                    );
+                }
+            }
+
+
             @endforeach
         }
         addPointToMap();

@@ -296,7 +296,7 @@ class ApiController extends Controller
             'lng' => 'required',
             'lat' => 'required',
             'floor' => 'required|integer|min:1|max:100',
-            'float' => ''
+            'orien' => ''
         ]);
 
         if ($validator->fails())
@@ -309,7 +309,7 @@ class ApiController extends Controller
         $userLocation->lng = rq('lng');
         $userLocation->lat = rq('lat');
         $userLocation->floor = rq('floor');
-        $userLocation->float = rq('float');
+        $userLocation->orien = rq('orien');
         $userLocation->save();
 
         return suc();

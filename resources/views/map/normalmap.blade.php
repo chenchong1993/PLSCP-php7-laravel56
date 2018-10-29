@@ -51,12 +51,6 @@
         height: 100%;
     }
 
-    #showbigger{
-        position: absolute;top:30px;left:200px;font-size: 18px;
-    }
-    #showsmaller{
-        position: absolute;top:30px;left:280px;font-size: 18px;
-    }
 </style>
 
 <script>
@@ -170,19 +164,41 @@
                         // 添加人
                         //注销掉因为先单用户测试
                         // for (var i in dat.data) {
-                        for (var i=0; i<10; i++) {
+                        for (var i=0; i<1; i++) {
                             // console.log(dat.data[i].username);
-                            console.log(dat.data[i].location.floor);
-                            addUserPoint(
-                                dat.data[i].id,
-                                dat.data[i].uid,
-                                dat.data[i].location.lng,
-                                dat.data[i].location.lat,
-                                dat.data[i].username,
-                                dat.data[i].tel_number,
-                                dat.data[i].location.floor,
-                                'normal'
-                            );
+                            if (dat.data[i].location.floor==3){
+                                if ((38.24766<dat.data[i].location.lat)&&(dat.data[i].location.lat<38.2478) &&(114.3485<dat.data[i].location.lng)&&(dat.data[i].location.lng<114.34871))
+                                {
+                                    console.log(dat.data[i].location.lng);
+                                    console.log(dat.data[i].location.lat);
+                                    addUserPoint(
+                                        dat.data[i].id,
+                                        dat.data[i].uid,
+                                        dat.data[i].location.lng,
+                                        dat.data[i].location.lat,
+                                        dat.data[i].username,
+                                        dat.data[i].tel_number,
+                                        dat.data[i].location.floor,
+                                        'normal'
+                                    );
+                                }
+                            } else {
+                                if ((38.24766<dat.data[i].location.lat)&&(dat.data[i].location.lat<38.2478) &&(114.3485<dat.data[i].location.lng)&&(dat.data[i].location.lng<114.349238))
+                                {
+                                    console.log(dat.data[i].location.lng);
+                                    console.log(dat.data[i].location.lat);
+                                    addUserPoint(
+                                        dat.data[i].id,
+                                        dat.data[i].uid,
+                                        dat.data[i].location.lng,
+                                        dat.data[i].location.lat,
+                                        dat.data[i].username,
+                                        dat.data[i].tel_number,
+                                        dat.data[i].location.floor,
+                                        'normal'
+                                    );
+                                }
+                            }
                             /**
                              if (dat.data[i].location.floor == 1) {
                                 lineArrayF1.push([dat.data[i].location.lng,dat.data[i].location.lat]);

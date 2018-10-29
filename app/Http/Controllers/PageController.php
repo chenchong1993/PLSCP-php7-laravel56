@@ -138,6 +138,7 @@ class PageController extends Controller
     public function normalMap()
     {
         return view('map.normalmap');
+//        return view('test.normalmap');
     }
 
     /**
