@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>大众位置服务云平台</title>
+
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('static/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- MetisMenu CSS -->

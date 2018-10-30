@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Obs;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -19,13 +20,33 @@ class Kernel extends ConsoleKernel
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @param  \Illuminate\Console\Scheduling\Schedule $schedule
      * @return void
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        /**
+         *
+         */
+        $schedule->call(function () {
+            $current_time = time();
+            $last_day_time = time() - (24 * 60 * 60);
+
+            $items = Obs::where('created_at', '>=', $last_day_time)->where('created_at', '<=', $current_time)->get();
+
+            $tmp_lng = '';
+            foreach ($items as $item){
+
+                if($tmp_lng == $item->lng)
+                    continue;
+
+                $tmp_lng = $item->lng;
+
+                //wifi
+            }
+
+
+        })->daily();
     }
 
     /**
@@ -35,7 +56,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }
