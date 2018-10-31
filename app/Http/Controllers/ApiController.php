@@ -283,7 +283,7 @@ class ApiController extends Controller
         "lng":"123.215",
         "lat":"123.215",
         "floor":"2",
-        "float":"123.215", 可空
+        "orien":"123.215", 可空
         "time":"125458751"
         }
      */

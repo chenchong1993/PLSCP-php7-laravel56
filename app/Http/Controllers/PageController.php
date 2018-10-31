@@ -18,12 +18,16 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     /**
-     * 主页
+     * 测试
      */
     public function test1()
     {
         return view('test.test1');
     }
+
+    /**
+     * 首页
+     */
     public function index()
     {
         return view('common.index');
@@ -158,7 +162,7 @@ class PageController extends Controller
     }
 
     /**
-     * 信号强度热力图
+     * 三个楼层信号强度热力图
      */
     public function signalHeatMapF1()
     {
@@ -191,10 +195,11 @@ class PageController extends Controller
         return view('map.userTrail',['userPositionLists' => $userPositionList]);
     }
 
+    /**
+     * 测试轨迹
+     */
     public function userTrail1()
     {
-
-
         return view('test.userTrail1');
     }
 

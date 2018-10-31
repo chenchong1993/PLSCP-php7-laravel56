@@ -26,16 +26,20 @@
     <script>
         require([
             "Ips/map",
+            "Ips/widget/IpsMeasure",
             "Ips/layers/DynamicMapServiceLayer",
             "Ips/layers/FeatureLayer",
             "Ips/renderers/HeatmapRenderer",
             "dojo/on",
             "dojo/dom",
             "dojo/domReady!"
-        ], function (Map,DynamicMapServiceLayer,FeatureLayer,HeatmapRenderer,on,dom){
+        ], function (Map,IpsMeasure,DynamicMapServiceLayer,FeatureLayer,HeatmapRenderer,on,dom){
             var map = new Map("map", {
                 logo:false,
                 center: [114.3489254,38.2477279]
+            });
+            var measure = new IpsMeasure({
+                map:map
             });
             //初始化F1楼层平面图
             var f1 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floorone/MapServer");
@@ -54,6 +58,7 @@
             f3.hide();
             network2.hide();
             network3.hide();
+            measure.startup();
 
             on(dom.byId("render1"),"click",function () {
 
