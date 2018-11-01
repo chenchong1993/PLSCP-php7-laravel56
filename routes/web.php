@@ -76,8 +76,9 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('apiGetUid', 'ApiController@apiGetUid');//为终端获取用户UID
     Route::post('apiAddUserLocation', 'ApiController@apiAddUserLocation');//获取用户坐标
     Route::get('apiGetAllUserNewLocationList', 'ApiController@apiGetAllUserNewLocationList');//从数据库中获取用户位置信息
-    Route::post('apiAddObs', 'ApiController@apiAddObs');//获取观测数据
-    Route::any('apiSensor', 'ApiController@apiSensor');//获取观测数据
+    Route::post('apiAddWifi', 'ApiController@apiAddWifi');//获取wifi观测数据
+    Route::post('apiAddBluetooth', 'ApiController@apiAddBluetooth');//获取蓝牙观测数据
+    Route::post('apiAddSensor', 'ApiController@apiAddSensor');//获取传感器观测数据
     Route::any('generatSignalStrength', 'ApiController@generatSignalStrength');//获取观测数据
 
 });

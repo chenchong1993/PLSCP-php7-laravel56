@@ -7,9 +7,12 @@
  */
 
 namespace App\Http\Controllers;
+use App\Bluetooth;
 use App\Coo;
 use App\Obs;
+use App\Sensor;
 use App\User;
+use App\Wifi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use phpDocumentor\Reflection\DocBlock\Tags\Uses;
@@ -356,9 +359,9 @@ class ApiController extends Controller
     }
 
     /**
-     * 观测数据上传接口
+     * wifi观测数据上传接口
      */
-    public function apiAddObs()
+    public function apiAddWifi()
     {
         $validator = Validator::make(rq(), [
             'uid' => 'required',
@@ -366,28 +369,81 @@ class ApiController extends Controller
             'lat' => 'required',
             'floor' => 'required',
             'orien' => 'required',
-            'wifi' => '',
-            'blue_tooth'=>'',
-            'sensor'=>''
+            'wifi' => 'required',
         ]);
 
         if ($validator->fails())
             return err(1, $validator->messages());
 
-        $obs = new Obs();
+        $obs = new Wifi();
         $obs->uid=rq('uid');
         $obs->lng=rq('lng');
         $obs->lat=rq('lat');
         $obs->floor=rq('floor');
         $obs->orien=rq('orien');
         $obs->wifi=rq('wifi');
-        $obs->blue_tooth=rq('blue_tooth');
-        $obs->sensor=rq('sensor');
         $obs->save();
         return suc();
 
     }
 
+    /**
+     * 蓝牙观测数据上传接口
+     */
+    public function apiAddBluetooth()
+    {
+        $validator = Validator::make(rq(), [
+            'uid' => 'required',
+            'lng' => 'required',
+            'lat' => 'required',
+            'floor' => 'required',
+            'orien' => 'required',
+            'bluetooth'=>'required',
+        ]);
+
+        if ($validator->fails())
+            return err(1, $validator->messages());
+
+        $obs = new Bluetooth();
+        $obs->uid=rq('uid');
+        $obs->lng=rq('lng');
+        $obs->lat=rq('lat');
+        $obs->floor=rq('floor');
+        $obs->orien=rq('orien');
+        $obs->blue_tooth=rq('bluetooth');
+        $obs->save();
+        return suc();
+
+    }
+
+    /**
+     * 传感器观测数据上传接口
+     */
+    public function apiAddSensor()
+    {
+        $validator = Validator::make(rq(), [
+            'uid' => 'required',
+            'lng' => 'required',
+            'lat' => 'required',
+            'floor' => 'required',
+            'orien' => 'required',
+            'sensor'=>'required'
+        ]);
+
+        if ($validator->fails())
+            return err(1, $validator->messages());
+
+        $obs = new Sensor();
+        $obs->uid=rq('uid');
+        $obs->lng=rq('lng');
+        $obs->lat=rq('lat');
+        $obs->floor=rq('floor');
+        $obs->orien=rq('orien');
+        $obs->sensor=rq('sensor');
+        $obs->save();
+        return suc();
+
+    }
     /**
      * 分存数据
      */
