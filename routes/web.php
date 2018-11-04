@@ -61,9 +61,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::any('pushToOne','PageController@pushToOne'); //私信
     Route::any('pushToMore','PageController@pushToMore'); //群发
     //热力图
-    Route::any('signalHeatMapF1','PageController@signalHeatMapF1'); //信号强度热力图1层
-    Route::any('signalHeatMapF2','PageController@signalHeatMapF2'); //信号强度热力图1层
-    Route::any('signalHeatMapF3','PageController@signalHeatMapF3'); //信号强度热力图1层
+    Route::any('wifiSignalHeatMap','PageController@wifiSignalHeatMap'); //wifi信号强度热力图
+    Route::any('bluSignalHeatMap','PageController@bluSignalHeatMap'); //信号强度热力图1层
     Route::any('test1','PageController@test1'); //群发
 
 
@@ -79,7 +78,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('apiAddWifi', 'ApiController@apiAddWifi');//获取wifi观测数据
     Route::post('apiAddBluetooth', 'ApiController@apiAddBluetooth');//获取蓝牙观测数据
     Route::post('apiAddSensor', 'ApiController@apiAddSensor');//获取传感器观测数据
-    Route::any('generatSignalStrength', 'ApiController@generatSignalStrength');//获取观测数据
+    Route::any('heatMapData', 'ApiController@heatMapData');//读热力图数据
 
 });
 });

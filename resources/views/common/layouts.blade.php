@@ -190,8 +190,7 @@
 
 <!-- Metis Menu Plugin JavaScript -->
 <script src="{{ asset('static/vendor/metisMenu/metisMenu.min.js') }}"></script>
-
-<!-- Custom Theme JavaScript -->
+<!-- Custom Theme JavaScript -->j
 <script src="{{ asset('static/dist/js/sb-admin-2.js') }}"></script>
 
 </body>

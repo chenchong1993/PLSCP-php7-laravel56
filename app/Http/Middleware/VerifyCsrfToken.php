@@ -22,7 +22,8 @@ class VerifyCsrfToken extends Middleware
         'api/apiAddUserLocation',
         'api/apiAddWifi',
         'api/apiAddBluetooth',
-        'api/apiAddSensor'
+        'api/apiAddSensor',
+        'api/heatMapData'
 //        'api/apiSensor'
     ];
 }

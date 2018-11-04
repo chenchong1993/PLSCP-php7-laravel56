@@ -162,19 +162,18 @@ class PageController extends Controller
     }
 
     /**
-     * 三个楼层信号强度热力图
+     * wifi信号强度热力图
      */
-    public function signalHeatMapF1()
+    public function wifiSignalHeatMap()
     {
-        return view('heatmap.signalHeatMapF1');
+        return view('heatmap.wifiSignalHeatMap');
     }
-    public function signalHeatMapF2()
+    /**
+     * 蓝牙信号强度热力图
+     */
+    public function bluSignalHeatMap()
     {
-        return view('heatmap.signalHeatMapF2');
-    }
-    public function signalHeatMapF3()
-    {
-        return view('heatmap.signalHeatMapF3');
+        return view('heatmap.bluSignalHeatMap');
     }
     /**
      * 历史轨迹图

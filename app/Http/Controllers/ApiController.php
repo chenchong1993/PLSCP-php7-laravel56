@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 use App\Bluetooth;
 use App\Coo;
+use App\HeatMapData;
 use App\Obs;
 use App\Sensor;
 use App\User;
@@ -459,9 +460,28 @@ class ApiController extends Controller
     }
 
     /**
-     * 处理wifi 蓝牙生成信号强度
+     * 读热力图数据
      */
-    public function generatSignalStrength(){
+    public function heatMapData(){
+
+        $validator = Validator::make(rq(), [
+            'type' => 'required',
+            'floor'=>'required'
+        ]);
+
+        if ($validator->fails())
+            return err(1, $validator->messages());
+
+        $type = rq('type');
+        $floor = rq('floor');
+        $heatMapData = HeatMapData::where("type" ,'=', $type)->where("floor" ,'=', $floor)->get();
+//        $data = json_decode($heatMapData[0]->data, true);
+        $data = $heatMapData[0]->data;
+        $dataobj = json_decode($data);
+
+//        return $dataobj;
+        return $data;
+        var_dump($dataobj);
 
 }
 }

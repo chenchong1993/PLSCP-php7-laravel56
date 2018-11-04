@@ -140,7 +140,7 @@
                 "<b>名称:</b><span>${name}</span><br>"
                 + "<b>手机号:</b><span>${phone}</span><br>"
                 + "<b>起始时间：</b><input type='text' name='startTime'class='' id='startTime' placeholder='2018-01-01 00:00:00'><br>"
-                + "<b>终止时间：</b><input type='text' name='endTime'class='' id='endTime' placeholder='2018-01-01 24:59:59'><br>"
+                + "<b>终止时间：</b><input type='text' name='endTime'class='' id='endTime' placeholder='2018-01-01 23:59:59'><br>"
                 + "<button class='' onclick=catUserTrail(" + "'" + uid + "'" + ") > 查看该用户轨迹</button>"
             );
             var picgr = new Graphic(picpoint, picSymbol, attr, infoTemplate);
