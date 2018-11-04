@@ -62,8 +62,12 @@ Route::group(['middleware' => 'web'], function () {
     Route::any('pushToMore','PageController@pushToMore'); //群发
     //热力图
     Route::any('wifiSignalHeatMap','PageController@wifiSignalHeatMap'); //wifi信号强度热力图
-    Route::any('bluSignalHeatMap','PageController@bluSignalHeatMap'); //信号强度热力图1层
-    Route::any('test1','PageController@test1'); //群发
+    Route::any('bluSignalHeatMap','PageController@bluSignalHeatMap'); //蓝牙信号强度热力图
+    Route::any('hdopHeatMap','PageController@hdopHeatMap'); //hdop热力图
+    Route::any('vdopHeatMap','PageController@vdopHeatMap'); //vdop热力图
+    Route::any('pdopHeatMap','PageController@pdopHeatMap'); //pdop热力图
+    Route::any('gdopHeatMap','PageController@gdopHeatMap'); //gdop热力图
+    Route::any('rssHeatMap','PageController@rssHeatMap'); //rss热力图
 
 
     Route::group(['prefix' => 'api'], function () {

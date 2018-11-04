@@ -26,6 +26,7 @@
           <entry key="project.open.time.38" value="1" />
           <entry key="project.open.time.39" value="2" />
           <entry key="project.open.time.40" value="2" />
+          <entry key="project.open.time.41" value="1" />
           <entry key="project.open.time.43" value="1" />
           <entry key="project.open.time.51" value="1" />
           <entry key="project.open.time.74" value="1" />
@@ -33,7 +34,7 @@
           <entry key="project.open.time.82" value="1" />
           <entry key="project.open.time.85" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="25" />
+          <entry key="project.opened" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.rename.constructor" />
@@ -47,7 +48,7 @@
           <entry key="js" value="9" />
           <entry key="json" value="1" />
           <entry key="log" value="2" />
-          <entry key="php" value="161" />
+          <entry key="php" value="176" />
           <entry key="rnc" value="1" />
           <entry key="scss" value="1" />
           <entry key="txt" value="1" />
@@ -57,7 +58,7 @@
         <counts>
           <entry key="dummy" value="11" />
           <entry key="html" value="19" />
-          <entry key="php" value="9792" />
+          <entry key="php" value="10455" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.composer.command.options" />
@@ -65,12 +66,12 @@
       <usages-collector id="statistics.php.composer.actions" />
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="103" />
+          <entry key="Blade" value="116" />
           <entry key="CSS" value="1" />
           <entry key="HTML" value="10" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="9" />
-          <entry key="PHP" value="58" />
+          <entry key="PHP" value="60" />
           <entry key="PLAIN_TEXT" value="8" />
           <entry key="RNG Compact" value="1" />
           <entry key="SCSS" value="1" />
@@ -83,9 +84,9 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="5984" />
+          <entry key="Blade" value="6529" />
           <entry key="HTML" value="19" />
-          <entry key="PHP" value="3808" />
+          <entry key="PHP" value="3926" />
           <entry key="PLAIN_TEXT" value="11" />
         </counts>
       </usages-collector>
@@ -98,8 +99,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/common/layouts.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="31" selection-start-line="31" selection-end-line="32" selection-end-column="78" />
+            <state relative-caret-position="317">
+              <caret line="124" column="66" selection-start-line="124" selection-start-column="66" selection-end-line="124" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -114,19 +115,32 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/硕士/研二/室内定位/大众位置服务终端云端/热力图扩展/热力图.html">
+        <entry file="file://$PROJECT_DIR$/resources/views/heatmap/bluSignalHeatMap.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1482">
-              <caret line="78" column="20" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="32" />
+            <state>
+              <caret selection-end-line="223" selection-end-column="7" />
+              <folding>
+                <element signature="n#head#0;n#html#0;n#!!top" />
+                <element signature="n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/heatmap/hdopHeatMap.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="237" lean-forward="true" selection-start-line="237" selection-end-line="237" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/heatmap/bluSignalHeatMap.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/heatmap/vdopHeatMap.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="157" column="47" lean-forward="true" selection-start-line="157" selection-start-column="47" selection-end-line="157" selection-end-column="47" />
+            <state relative-caret-position="331">
+              <caret line="218" column="44" selection-start-line="218" selection-start-column="44" selection-end-line="218" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -134,17 +148,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1216">
-              <caret line="64" column="66" selection-start-line="64" selection-start-column="50" selection-end-line="64" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/map/userTrail.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2907">
-              <caret line="153" column="63" selection-start-line="153" selection-start-column="36" selection-end-line="153" selection-end-column="63" />
+            <state relative-caret-position="434">
+              <caret line="68" column="56" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -179,10 +184,10 @@
       <find>setInterval</find>
       <find>overlay</find>
       <find>#map</find>
-      <find>point</find>
       <find>echarts</find>
       <find>dojoConfig</find>
       <find>addLa</find>
+      <find>point</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -215,7 +220,6 @@
         <option value="$PROJECT_DIR$/resources/views/heatmap/signalHeatMapF3.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/test/test1.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/test/userTrail1.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/map/userTrail.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/push/one2one.blade.php" />
         <option value="$PROJECT_DIR$/app/Console/Kernel.php" />
         <option value="$PROJECT_DIR$/resources/views/map/routemap.blade.php" />
@@ -227,15 +231,20 @@
         <option value="$PROJECT_DIR$/app/Bluetooth.php" />
         <option value="$PROJECT_DIR$/app/HeatMapData.php" />
         <option value="$PROJECT_DIR$/resources/views/map/normalmap.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/common/layouts.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" />
         <option value="$PROJECT_DIR$/resources/views/heatmap/signalHeatMapF1.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/heatmap/signalHeatMap.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/PageController.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/heatmap/wifiSignalHeatMap.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/heatmap/bluSignalHeatMap.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/common/layouts.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/PageController.php" />
+        <option value="$PROJECT_DIR$/resources/views/heatmap/gdopHeatMap.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/heatmap/pdopHeatMap.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/map/userTrail.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/heatmap/hdopHeatMap.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/heatmap/vdopHeatMap.blade.php" />
       </list>
     </option>
   </component>
@@ -362,7 +371,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -386,7 +394,7 @@
               <item name="PLSCP" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Middleware" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PLSCP" type="b2602c69:ProjectViewProjectNode" />
@@ -398,13 +406,6 @@
               <item name="PLSCP" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PLSCP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PLSCP" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PLSCP" type="b2602c69:ProjectViewProjectNode" />
@@ -429,6 +430,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -494,17 +496,18 @@
       <workItem from="1541207952768" duration="1311000" />
       <workItem from="1541209915237" duration="8279000" />
       <workItem from="1541225086882" duration="3621000" />
+      <workItem from="1541315731606" duration="8951000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="328176000" />
+    <option name="totallyTimeSpent" value="337127000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21785174" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22087745" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -526,7 +529,7 @@
       <window_info anchor="right" id="Database" order="3" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20953101" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22087745" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -555,29 +558,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/Ips_api_javascript/esri/themes/calcite/esri/variables/_basemap-toggle.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="7" column="79" selection-start-line="7" selection-start-column="79" selection-end-line="7" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/static/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/static/jquery/jquery-1.8.3.min.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/static/bootstrap/js/bootstrap-datetimepicker.fr.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/static/bootstrap-datetimepicker-master/sample in bootstrap v3/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
@@ -739,9 +719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="19" selection-end-column="1" />
-          <folding>
-            <element signature="e#6#104#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -769,9 +746,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-          <folding>
-            <element signature="e#6#104#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -805,20 +779,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="170" selection-start-line="170" selection-end-line="170" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/common/layouts.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="31" selection-start-line="31" selection-end-line="32" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/heatmap/wifiSignalHeatMap.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4142">
@@ -833,24 +793,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/common/layouts.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1216">
-          <caret line="64" column="66" selection-start-line="64" selection-start-column="50" selection-end-line="64" selection-end-column="66" />
+        <state relative-caret-position="317">
+          <caret line="124" column="66" selection-start-line="124" selection-start-column="66" selection-end-line="124" selection-end-column="66" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/map/userTrail.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/heatmap/rssHeatMap.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2907">
-          <caret line="153" column="63" selection-start-line="153" selection-start-column="36" selection-end-line="153" selection-end-column="63" />
+        <state relative-caret-position="434">
+          <caret line="68" column="56" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/heatmap/pdopHeatMap.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-733">
+          <caret line="179" column="42" lean-forward="true" selection-start-line="179" selection-start-column="42" selection-end-line="179" selection-end-column="42" />
+          <folding>
+            <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#script#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/heatmap/gdopHeatMap.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="242" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#html#0;n#!!top" />
+            <element signature="n#style#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#script#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="e#4589#8250#0#HTML" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/heatmap/bluSignalHeatMap.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="157" column="47" lean-forward="true" selection-start-line="157" selection-start-column="47" selection-end-line="157" selection-end-column="47" />
+        <state>
+          <caret selection-end-line="223" selection-end-column="7" />
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" />
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/map/userTrail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-19">
+          <caret line="191" column="84" selection-start-line="191" selection-start-column="84" selection-end-line="191" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-790">
+          <caret line="193" column="5" lean-forward="true" selection-start-line="193" selection-start-column="5" selection-end-line="193" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/heatmap/hdopHeatMap.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="237" lean-forward="true" selection-start-line="237" selection-end-line="237" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/heatmap/vdopHeatMap.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="218" column="44" selection-start-line="218" selection-start-column="44" selection-end-line="218" selection-end-column="44" />
         </state>
       </provider>
     </entry>

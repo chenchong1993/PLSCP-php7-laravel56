@@ -122,7 +122,7 @@
                         <a href="#"> <i class="Hui-iconfont">&#xe6c1;</i>热力图<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{ url('signalHeatMapF1')}}">信号强度热力图</a>
+                                <a href="{{ url('wifiSignalHeatMap')}}">信号强度热力图</a>
                             </li>
                             <li>
                                 <a href="{{ url('heatMap')}}">定位精度热力图</a>

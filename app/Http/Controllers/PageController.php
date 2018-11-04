@@ -176,6 +176,26 @@ class PageController extends Controller
         return view('heatmap.bluSignalHeatMap');
     }
     /**
+     * GDOP热力图
+     */
+    public function gdopHeatMap(){
+        return view('heatmap.gdopHeatMap');
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * hdop
+     */
+    public function hdopHeatMap(){
+        return view('heatmap.hdopHeatMap');
+    }
+    public function pdopHeatMap(){
+        return view('heatmap.pdopHeatMap');
+    }
+    public function vdopHeatMap(){
+        return view('heatmap.vdopHeatMap');
+    }
+    /**
      * 历史轨迹图
      */
     public function userTrail()
