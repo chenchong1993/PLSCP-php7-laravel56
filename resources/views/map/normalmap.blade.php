@@ -39,7 +39,14 @@
     </style>
 </head>
 <body>
-{{--/*定义放大缩小按钮风格*/--}}
+<style>
+    .menu-btn {
+        position: fixed;top:30px;left:1140px;font-size: 18px;
+    }
+    #showIndex{
+        top:30px;
+    }
+</style>
 <style>
     html, body, #map1,map2,map3{
         margin: 0;
@@ -48,11 +55,23 @@
         height: 100%;
     }
 </style>
+<div class="row">
+    <div class="map1-col">
+        <div id="map1"></div>
+    </div>
+    <div class="map2-col">
+        <div id="map2"></div>
+        <button class="menu-btn" id="showIndex" onclick=showIndex()>返回首页</button>
+    </div>
+    <div class="map3-col">
+        <div id="map3"></div>
+    </div>
+</div>
 <script>
     /**
      * 定义全局变量
      **/
-    var INTERVAL_TIME = 1; //数据刷新间隔时间
+    var INTERVAL_TIME = 0.5; //数据刷新间隔时间
     var POINTSIZE = 24;    //默认图片大小为24*24
     /**
      * 跳转到用户轨迹页面
@@ -62,6 +81,9 @@
         var startTime = $('#startTime').val();
         var endTime = $('#endTime').val();
         window.location.href = '/userTrail?uid=' + uid + '&startTime=' + startTime +'&endTime=' + endTime;
+    }
+    function showIndex() {
+        window.location.href = '/index';
     }
     /**
      * 地图需求文件
@@ -255,16 +277,6 @@
         setInterval(getDataAndRefresh, (INTERVAL_TIME * 1000))
     });
 </script>
-<div class="row">
-    <div class="map1-col">
-        <div id="map1"></div>
-    </div>
-    <div class="map2-col">
-        <div id="map2"></div>
-    </div>
-    <div class="map3-col">
-        <div id="map3"></div>
-    </div>
-</div>
+
 </body>
 </html>

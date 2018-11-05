@@ -43,11 +43,20 @@
 <body>
 {{--/*定义放大缩小按钮风格*/--}}
 <style>
-    #showbigger{
-        position: fixed;top:30px;left:1000px;font-size: 18px;
+    .menu-btn {
+        position: fixed;top:30px;left:1140px;font-size: 18px;
     }
-    #showsmaller{
-        position: fixed;top:30px;left:1100px;font-size: 18px;
+    #showWifi{
+        top:30px;
+    }
+    #showBluetooth{
+        top:70px;
+    }
+    #showRSS{
+        top:110px;
+    }
+    #showIndex{
+        top:150px;
     }
 </style>
 <style>
@@ -58,6 +67,22 @@
         height: 100%;
     }
 </style>
+<div class="row">
+    <div class="map1-col">
+        <div id="map1"></div>
+    </div>
+    <div class="map2-col">
+        <div id="map2"></div>
+        <h2 class="menu-btn" style="left: 43%;font-size: 35px;color: #0c0c0c;top: 10px">RSS</h2>
+        <button class="menu-btn" id="showWifi" onclick=showWifi()>WIFI</button>
+        <button class="menu-btn" id="showBluetooth" onclick=showBluetooth()>蓝牙</button>
+        <button class="menu-btn" id="showRSS" onclick=showRSS()>伪卫星</button>
+        <button class="menu-btn" id="showIndex" onclick=showIndex()>返回首页</button>
+    </div>
+    <div class="map3-col">
+        <div id="map3"></div>
+    </div>
+</div>
 <script>
     var dojoConfig={
         async: true,
@@ -68,14 +93,18 @@
     }
 </script>
 <script>
-    function showBlu() {
+    function showWifi() {
+        window.location.href = '/wifiSignalHeatMap';
+    }
+    function showBluetooth() {
         window.location.href = '/bluSignalHeatMap';
     }
-    /**
-     * 定义全局变量
-     **/
-    var INTERVAL_TIME = 1; //数据刷新间隔时间
-    var POINTSIZE = 24;    //默认图片大小为24*24
+    function showRSS() {
+        window.location.href = '/rssHeatMap';
+    }
+    function showIndex() {
+        window.location.href = '/index';
+    }
     /**
      * 地图需求文件
      */
@@ -208,18 +237,6 @@
         getHeatMap('wifi','1',pointF1,map1);
     });
 </script>
-<div class="row">
-    <div class="map1-col">
-        <div id="map1"></div>
-    </div>
-    <div class="map2-col">
-        <div id="map2"></div>
-        {{--<button id="showbigger" ,onclick='returnNormalMap()'> </button>--}}
-        <button id="showsmaller" onclick=showBlu()>蓝牙</button>
-    </div>
-    <div class="map3-col">
-        <div id="map3"></div>
-    </div>
-</div>
+
 </body>
 </html>

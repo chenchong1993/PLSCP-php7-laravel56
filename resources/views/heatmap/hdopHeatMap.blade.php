@@ -34,7 +34,6 @@
     <script src="{{ asset('static/vendor/jquery/jquery.min.js') }}"></script>
     {{--修改三张地图尺寸--}}
     <style type="text/css">
-        /*.user-msg{position:absolute;left:810px;top:10px;z-index:auto;width:500px;background-color:#f6f6f6}*/
         .map1-col{position:absolute;left:10px;top:10px;z-index:0;width:1200px;background-color:#f6f6f6}
         .map2-col{position:absolute;left:10px;top:350px;z-index:1;width:1200px;background-color:#f6f6f6}
         .map3-col{position:absolute;left:10px;top:740px;z-index:0;width:600px;background-color:#f6f6f6}
@@ -42,23 +41,26 @@
 </head>
 <body>
 {{--/*定义放大缩小按钮风格*/--}}
-<styl>
+<style>
     .menu-btn {
-        position: fixed;top:30px;;font-size: 18px;
+        position: fixed;top:30px;left:1140px;font-size: 18px;
     }
     #showHDOP{
-        left:1000px;
+        top:30px;
     }
     #showVDOP{
-        left:1080px
+        top:70px;
     }
     #showPDOP{
-        left:1160px;
+        top:110px;
     }
     #showGDOP{
-      left:1240px;
+        top:150px;
     }
-</styl>
+    #showIndex{
+        top:190px;
+    }
+</style>
 <style>
     html, body, #map1,map2,map3{
         margin: 0;
@@ -73,11 +75,13 @@
     </div>
     <div class="map2-col">
         <div id="map2"></div>
-        <h2 id="title" style="position: fixed ">11111111111</h2>
+        <h2 class="menu-btn" style="left: 43%;font-size: 35px;color: #0c0c0c;top: 10px">HDOP</h2>
         <button class="menu-btn" id="showHDOP" onclick=showHDOP()>HDOP</button>
         <button class="menu-btn" id="showVDOP" onclick=showVDOP()>VDOP</button>
         <button class="menu-btn" id="showPDOP" onclick=showPDOP()>PDOP</button>
-        <button class="menu-btn" id="showGDOP" onclick=showGDOP()>GDOP</button>
+        <button class="menu-btn" id="showGDOP"  onclick=showGDOP()>GDOP</button>
+        <button class="menu-btn" id="showIndex" onclick=showIndex()>返回首页</button>
+
     </div>
     <div class="map3-col">
         <div id="map3"></div>
@@ -104,6 +108,9 @@
     }
     function showGDOP() {
         window.location.href = '/gdopHeatMap';
+    }
+    function showIndex() {
+        window.location.href = '/index';
     }
     /**
      * 地图需求文件

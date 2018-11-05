@@ -39,13 +39,34 @@
 <body style="height: 100%; margin: 0">
 {{--/*定义放大缩小按钮风格*/--}}
 <style>
+    .menu-btn {
+        position: fixed;top:30px;left:1140px;font-size: 18px;
+    }
     #showbigger{
-        position: fixed;top:30px;left:1000px;font-size: 18px;
+        top:30px;
     }
     #showsmaller{
-        position: fixed;top:30px;left:1100px;font-size: 18px;
+        top:70px;
+    }
+    #showIndex{
+        top:110px;
     }
 </style>
+<div class="row">
+    <div class="map1-col">
+        <div id="map1"></div>
+    </div>
+    <div class="map2-col">
+        <div id="map2"></div>
+        <button  class="menu-btn" id="showbigger">放大点</button>
+        <button  class="menu-btn" id="showsmaller">缩小点</button>
+        <button class="menu-btn" id="showIndex" onclick=showIndex()>返回首页</button>
+
+    </div>
+    <div class="map3-col">
+        <div id="map3"></div>
+    </div>
+</div>
 <script>
     /**
      * 定义全局变量
@@ -56,6 +77,9 @@
      */
     function returnNormalMap() {
         window.location.href = '/normalMap';
+    }
+    function showIndex() {
+        window.location.href = '/index';
     }
     /**
      * 地图需求文件
@@ -208,18 +232,6 @@
         addPointToMap();
     });
 </script>
-<div class="row">
-    <div class="map1-col">
-        <div id="map1"></div>
-    </div>
-    <div class="map2-col">
-        <div id="map2"></div>
-        <button id="showbigger">放大点</button>
-        <button id="showsmaller">缩小点</button>
-    </div>
-    <div class="map3-col">
-        <div id="map3"></div>
-    </div>
-</div>
+
 </body>
 </html>

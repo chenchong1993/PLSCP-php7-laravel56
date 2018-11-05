@@ -43,17 +43,20 @@
 <body>
 {{--/*定义放大缩小按钮风格*/--}}
 <style>
-    #showHDOP{
-        position: fixed;top:30px;left:1000px;font-size: 18px;
+    .menu-btn {
+        position: fixed;top:30px;left:1140px;font-size: 18px;
     }
-    #showVDOP{
-        position: fixed;top:30px;left:1080px;font-size: 18px;
+    #showWifi{
+        top:30px;
     }
-    #showPDOP{
-        position: fixed;top:30px;left:1160px;font-size: 18px;
+    #showBluetooth{
+        top:70px;
     }
-    #showGDOP{
-        position: fixed;top:30px;left:1240px;font-size: 18px;
+    #showRSS{
+        top:110px;
+    }
+    #showIndex{
+        top:150px;
     }
 </style>
 <style>
@@ -70,10 +73,11 @@
     </div>
     <div class="map2-col">
         <div id="map2"></div>
-        <button id="showHDOP" onclick=showHDOP()>HDOP</button>
-        <button id="showVDOP" onclick=showVDOP()>VDOP</button>
-        <button id="showPDOP" onclick=showPDOP()>PDOP</button>
-        <button id="showGDOP" onclick=showGDOP()>GDOP</button>
+        <h2 class="menu-btn" style="left: 43%;font-size: 35px;color: #0c0c0c;top: 10px">RSS</h2>
+        <button class="menu-btn" id="showWifi" onclick=showWifi()>WIFI</button>
+        <button class="menu-btn" id="showBluetooth" onclick=showBluetooth()>蓝牙</button>
+        <button class="menu-btn" id="showRSS" onclick=showRSS()>伪卫星</button>
+        <button class="menu-btn" id="showIndex" onclick=showIndex()>返回首页</button>
     </div>
     <div class="map3-col">
         <div id="map3"></div>
@@ -89,17 +93,17 @@
     }
 </script>
 <script>
-    function showHDOP() {
-        window.location.href = '/hdopHeatMap';
+    function showWifi() {
+        window.location.href = '/wifiSignalHeatMap';
     }
-    function showVDOP() {
-        window.location.href = '/vdopHeatMap';
+    function showBluetooth() {
+        window.location.href = '/bluSignalHeatMap';
     }
-    function showPDOP() {
-        window.location.href = '/pdopHeatMap';
+    function showRSS() {
+        window.location.href = '/rssHeatMap';
     }
-    function showGDOP() {
-        window.location.href = '/gdopHeatMap';
+    function showIndex() {
+        window.location.href = '/index';
     }
     /**
      * 地图需求文件
@@ -238,6 +242,5 @@
 
     });
 </script>
-
 </body>
 </html>
