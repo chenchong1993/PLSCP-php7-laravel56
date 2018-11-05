@@ -176,8 +176,8 @@
                                 }
                             },
                             visualMap: {
-                                min: 1.2293,
-                                max: 1.2377,
+                                min: 1.195,
+                                max: 1.245,
                                 splitNumber: 5,
                                 show: false,
                                 inRange: {
@@ -221,7 +221,7 @@
                         };
                         // 使用刚指定的配置项和数据显示图表。
                         overlay.setOption(option);
-                        console.log(point);
+                        console.log(point)
 
                     }
                     catch (e) {
@@ -238,5 +238,6 @@
 
     });
 </script>
+
 </body>
 </html>

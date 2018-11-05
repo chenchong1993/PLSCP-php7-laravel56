@@ -176,8 +176,8 @@
                                 }
                             },
                             visualMap: {
-                                min: 1.8394,
-                                max: 1.8498,
+                                min: 1.825,
+                                max: 1.85,
                                 splitNumber: 5,
                                 show: false,
                                 inRange: {

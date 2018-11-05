@@ -112,7 +112,6 @@
         map2.addLayer(f2);
         map3.addLayer(f3);
 
-        var wifiPoint = [];
         /**
          * 从数据库获取热力图数据
          */
@@ -134,7 +133,7 @@
                      * 循环生成wifipoint数组
                      */
                     for (var i in jsonObj){
-                        var  newLine = [jsonObj[i][0],jsonObj[i][1],jsonObj[i][2]];
+                        var  newLine = [jsonObj[i][1],jsonObj[i][0],jsonObj[i][2]];
                         point.push(newLine);
                     }
                     try {
@@ -143,7 +142,6 @@
                         var chartsContainer = overlay.getEchartsContainer();
                         var myChart = overlay.initECharts(chartsContainer);
                         //轨迹点数据
-                        console.log(wifiPoint);
                         //热力图配置
                         var option = {
                             title: {
@@ -206,7 +204,8 @@
                 }
             );
         }
-        getHeatMap('wifi','1',wifiPoint,map1);
+        var pointF1 = [];
+        getHeatMap('wifi','1',pointF1,map1);
     });
 </script>
 <div class="row">

@@ -42,20 +42,23 @@
 </head>
 <body>
 {{--/*定义放大缩小按钮风格*/--}}
-<style>
+<styl>
+    .menu-btn {
+        position: fixed;top:30px;;font-size: 18px;
+    }
     #showHDOP{
-        position: fixed;top:30px;left:1000px;font-size: 18px;
+        left:1000px;
     }
     #showVDOP{
-        position: fixed;top:30px;left:1080px;font-size: 18px;
+        left:1080px
     }
     #showPDOP{
-        position: fixed;top:30px;left:1160px;font-size: 18px;
+        left:1160px;
     }
     #showGDOP{
-        position: fixed;top:30px;left:1240px;font-size: 18px;
+      left:1240px;
     }
-</style>
+</styl>
 <style>
     html, body, #map1,map2,map3{
         margin: 0;
@@ -70,10 +73,11 @@
     </div>
     <div class="map2-col">
         <div id="map2"></div>
-        <button id="showHDOP" onclick=showHDOP()>HDOP</button>
-        <button id="showVDOP" onclick=showVDOP()>VDOP</button>
-        <button id="showPDOP" onclick=showPDOP()>PDOP</button>
-        <button id="showGDOP" onclick=showGDOP()>GDOP</button>
+        <h2 id="title" style="position: fixed ">11111111111</h2>
+        <button class="menu-btn" id="showHDOP" onclick=showHDOP()>HDOP</button>
+        <button class="menu-btn" id="showVDOP" onclick=showVDOP()>VDOP</button>
+        <button class="menu-btn" id="showPDOP" onclick=showPDOP()>PDOP</button>
+        <button class="menu-btn" id="showGDOP" onclick=showGDOP()>GDOP</button>
     </div>
     <div class="map3-col">
         <div id="map3"></div>

@@ -128,7 +128,7 @@
                                 <a href="{{ url('heatMap')}}">定位精度热力图</a>
                             </li>
                             <li>
-                                <a href="{{ url('heatMap')}}">精度因子热力图</a>
+                                <a href="{{ url('hdopHeatMap')}}">精度因子热力图</a>
                             </li>
                         </ul>
                     </li>

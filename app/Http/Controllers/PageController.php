@@ -195,6 +195,9 @@ class PageController extends Controller
     public function vdopHeatMap(){
         return view('heatmap.vdopHeatMap');
     }
+    public function rssHeatMap(){
+        return view('heatmap.rssHeatMap');
+    }
     /**
      * 历史轨迹图
      */
