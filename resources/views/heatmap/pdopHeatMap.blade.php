@@ -176,8 +176,8 @@
                                 }
                             },
                             visualMap: {
-                                min: 1.81,
-                                max: 1.87,
+                                min: 1.8394,
+                                max: 1.8498,
                                 splitNumber: 5,
                                 show: false,
                                 inRange: {
@@ -215,8 +215,8 @@
                                 type: 'heatmap', //effectScatter
                                 coordinateSystem: 'geo',
                                 data: point, //渲染数据【点数组】
-                                pointSize: 140,  //点大小
-                                blurSize: 213  //模糊大小
+                                pointSize: 28,  //点大小
+                                blurSize: 80  //模糊大小
                             }]
                         };
                         // 使用刚指定的配置项和数据显示图表。

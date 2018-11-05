@@ -15,6 +15,6 @@ use Illuminate\Database\Eloquent\Model;
 class HeatMapData extends Model
 {
     protected $table = "heatmapdata";
-//    public $timestamps =  false;
+    public $timestamps =  false;
 
 }

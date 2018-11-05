@@ -182,7 +182,7 @@
                                 show: false,
                                 inRange: {
                                     // color: ['#d94d07', '#ea4007', '#baa808'].reverse()
-                                    color: ['blue', 'blue', 'green', 'yellow', 'red']
+                                    color: ['blue', 'green', 'green', 'yellow', 'red']
                                 },
                                 textStyle: {
                                     color: '#080808'
@@ -221,7 +221,7 @@
                         };
                         // 使用刚指定的配置项和数据显示图表。
                         overlay.setOption(option);
-                        console.log(point)
+                        console.log(point);
 
                     }
                     catch (e) {
@@ -238,6 +238,5 @@
 
     });
 </script>
-
 </body>
 </html>

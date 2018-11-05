@@ -189,7 +189,7 @@
                     );
                 }
             } else {
-                if ((38.24766<lat)&&(lat<38.2478) &&(114.34855<lng)&&(lng<114.349238))
+                if ((38.24766<lat)&&(lat<38.2478) &&(114.34855<lng)&&(lng<114.34929))
                 {
                     console.log({{$userPositionList->floor}});
                     addUserPoint(
